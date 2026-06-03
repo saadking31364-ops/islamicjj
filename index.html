@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Scholar - Your Educational AI Assistant</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>??</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -476,17 +476,6 @@ body.welcome-active {
   opacity: 1;
 }
 
-.chat-messages {
-  flex: 1;
-  overflow-y: auto;
-  padding: 24px 16px;
-  scroll-behavior: smooth;
-}
-
-.chat-messages::-webkit-scrollbar {
-  width: 4px;
-}
-
 .chat-messages::-webkit-scrollbar-thumb {
   background: var(--border);
   border-radius: 2px;
@@ -565,30 +554,9 @@ body.welcome-active {
 }
 
 .message-bubble {
-  padding: 14px 18px;
-  border-radius: 16px;
   line-height: 1.65;
-  position: relative;
   word-wrap: break-word;
-  transition: var(--transition);
   font-size: 14px;
-}
-
-.message.user-msg .message-bubble {
-  background: var(--msg-user);
-  border: 1px solid rgba(99,102,241,0.15);
-  border-radius: 16px 16px 4px 16px;
-}
-
-.message.ai-msg .message-bubble {
-  background: var(--msg-ai);
-  border: 1px solid var(--border);
-  border-radius: 16px 16px 16px 4px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-}
-
-.message:hover .message-bubble {
-  box-shadow: 0 4px 12px rgba(99,102,241,0.08);
 }
 
 .message-bubble p {
@@ -1606,10 +1574,6 @@ body.welcome-active {
     padding: 5px 10px;
   }
 
-  .chat-messages {
-    padding: 12px;
-  }
-
   .chat-input-area {
     padding: 10px 12px;
   }
@@ -1655,7 +1619,6 @@ body.welcome-active {
   }
 
   .message-bubble {
-    padding: 10px 14px;
     font-size: 13px;
   }
 
@@ -1761,9 +1724,7 @@ body.welcome-active {
   }
 
   .message-bubble {
-    padding: 8px 12px;
     font-size: 12px;
-    border-radius: 10px;
   }
 
   .welcome-msg {
@@ -1789,9 +1750,6 @@ body.welcome-active {
 .main-container { display: flex; height: calc(100vh - 56px); }
 
 .chat-panel { flex: 1; display: flex; flex-direction: column; min-width: 380px; border-right: 1px solid var(--border); }
-.chat-messages { flex: 1; overflow-y: auto; padding: 20px; scroll-behavior: smooth; }
-.chat-messages::-webkit-scrollbar { width: 6px; }
-.chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
 .message { display: flex; gap: 12px; margin-bottom: 20px; animation: fadeIn 0.3s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -1804,9 +1762,7 @@ body.welcome-active {
 .message-time { font-size: 11px; color: var(--text-secondary); }
 .message-model { font-size: 10px; color: var(--accent); background: rgba(0,212,255,0.1); padding: 1px 6px; border-radius: 4px; }
 
-.message-bubble { padding: 12px 16px; border-radius: var(--radius); line-height: 1.6; position: relative; word-wrap: break-word; }
-.message.user-msg .message-bubble { background: var(--msg-user); border-top-left-radius: 4px; }
-.message.ai-msg .message-bubble { background: var(--msg-ai); border: 1px solid var(--border); border-top-left-radius: 4px; }
+.message-bubble { line-height: 1.6; word-wrap: break-word; }
 .message-bubble p { margin-bottom: 8px; }
 .message-bubble p:last-child { margin-bottom: 0; }
 .message-bubble code { background: rgba(0,0,0,0.25); padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px; }
@@ -2041,8 +1997,7 @@ body.welcome-active {
 .header { background: linear-gradient(90deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); box-shadow: var(--shadow); }
 
 /* === MESSAGE IMPROVEMENTS === */
-.message-bubble { transition: all 0.2s; }
-.message:hover .message-bubble { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+
 
 /* === FLOATING ACTION BUTTONS === */
 .fab-container { position: fixed; bottom: 30px; right: 30px; display: flex; gap: 10px; flex-direction: column; }
@@ -3732,9 +3687,12 @@ body.welcome-active {
   display: flex;
   flex-direction: column;
   scroll-behavior: smooth;
+  background: var(--bg-primary);
 }
-.chat-messages::-webkit-scrollbar { width: 4px; }
-.chat-messages::-webkit-scrollbar-thumb { background: #d4cfc8; border-radius: 2px; }
+.chat-messages::-webkit-scrollbar { width: 5px; }
+.chat-messages::-webkit-scrollbar-track { background: transparent; }
+.chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 10px; }
+.chat-messages::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.12); }
 
 /* -- Welcome Card -- */
 .welcome-msg {
@@ -3786,7 +3744,7 @@ body.welcome-active {
   line-height: 1.4;
 }
 
-/* Quick Actions � Pills */
+/* Quick Actions -- Pills */
 .quick-actions {
   display: flex;
   flex-wrap: wrap;
@@ -3828,69 +3786,162 @@ body.welcome-active {
 .qa-btn:active { transform: scale(0.95); }
 
 /* -- Messages -- */
-.message { margin-bottom: 18px; animation: msgUp 0.3s ease; }
-@keyframes msgUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.message {
+  margin-bottom: 6px;
+  animation: msgUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+@keyframes msgUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-.msg-row { display: flex; gap: 10px; align-items: flex-start; }
-.msg-row-user { flex-direction: row-reverse; }
-.msg-row-ai { flex-direction: row; }
+.msg-row { display: flex; align-items: flex-start; }
+.msg-row-user { justify-content: flex-end; }
+.msg-row-ai { justify-content: flex-start; }
 
 .msg-avatar { display: none; }
-.msg-avatar.user { background: var(--accent); color: #fff; }
-.msg-avatar.ai { background: var(--bg-tertiary); border: 2px solid var(--border); }
-.msg-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.msg-col { max-width: 78%; min-width: 0; display: flex; flex-direction: column; }
+.msg-col { max-width: 82%; min-width: 0; display: flex; flex-direction: column; }
 .msg-col-user { align-items: flex-end; }
 .msg-col-ai { align-items: flex-start; }
 
-.msg-meta { display: none; }
-.msg-meta-user { flex-direction: row-reverse; }
-.message-name { font-size: 11px; font-weight: 600; color: var(--text-secondary); letter-spacing: 0.2px; }
-.message-time { font-size: 10px; color: #b5afa8; white-space: nowrap; }
-.msg-dot { font-size: 10px; color: #d4cfc8; user-select: none; }
-.message-model { font-size: 10px; color: var(--accent); background: rgba(124,58,237,0.08); padding: 2px 8px; border-radius: 100px; white-space: nowrap; font-weight: 500; }
+/* -- Message Label -- */
+.msg-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  margin-bottom: 3px;
+  padding: 0 12px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+.msg-label-user { color: #a78bfa; }
+.msg-label-ai { color: var(--accent); }
+.message:hover .msg-label { opacity: 0.8; }
 
-.msg-bubble { line-height: 1.6; font-size: 14px; word-wrap: break-word; }
-.msg-bubble p { margin: 0 0 6px; }
+/* -- Message Content (no container) -- */
+.msg-bubble {
+  line-height: 1.7;
+  font-size: 14px;
+  word-wrap: break-word;
+  padding: 3px 12px;
+  position: relative;
+}
+.msg-bubble p { margin: 0 0 8px; }
 .msg-bubble p:last-child { margin: 0; }
 
 .msg-bubble.msg-bubble-user {
-  color: #fff;
+  color: #e8e8f0;
+  border-right: 2px solid rgba(167,139,250,0.3);
 }
-.msg-bubble.msg-bubble-user code { background: rgba(255,255,255,0.15); color: #fff; padding: 2px 5px; border-radius: 4px; font-size: 13px; }
-.msg-bubble.msg-bubble-user pre { background: rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px; overflow-x: auto; margin: 6px 0; }
-.msg-bubble.msg-bubble-user pre code { background: none; padding: 0; }
-.msg-bubble.msg-bubble-user a { color: #ddd6fe; text-decoration: underline; }
-.msg-bubble.msg-bubble-user strong { color: #fff; }
-.msg-bubble.msg-bubble-user ul, .msg-bubble.msg-bubble-user ol { padding-left: 18px; margin: 4px 0; }
-.msg-bubble.msg-bubble-user li { margin: 2px 0; }
-
 .msg-bubble.msg-bubble-ai {
   color: var(--text-primary);
+  border-left: 2px solid rgba(0,217,255,0.2);
 }
-.msg-bubble.msg-bubble-ai p { color: var(--text-primary); }
-.msg-bubble.msg-bubble-ai code { background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px; font-family: 'Cascadia Code','Fira Code',monospace; font-size: 13px; }
-.msg-bubble.msg-bubble-ai pre { background: rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.06); border-radius: 8px; padding: 12px; overflow-x: auto; margin: 8px 0; }
-.msg-bubble.msg-bubble-ai pre code { background: none; padding: 0; }
-.msg-bubble.msg-bubble-ai ul, .msg-bubble.msg-bubble-ai ol { padding-left: 18px; margin: 6px 0; }
-.msg-bubble.msg-bubble-ai li { margin: 3px 0; }
-.msg-bubble.msg-bubble-ai strong { color: var(--text-primary); }
-.msg-bubble.msg-bubble-ai a { color: var(--accent); text-decoration: underline; }
-.msg-bubble.msg-bubble-ai h3, .msg-bubble.msg-bubble-ai h4 { margin: 8px 0 4px; color: var(--text-primary); }
 
-.message-actions { display: flex; gap: 3px; margin-top: 5px; }
-.msg-action-btn, .tts-btn { padding: 4px 10px; background: transparent; border: none; border-radius: 8px; color: #b5afa8; font-size: 11px; cursor: pointer; font-weight: 500; transition: all 0.2s; white-space: nowrap; }
-.msg-action-btn:hover, .tts-btn:hover { background: rgba(124,58,237,0.06); color: var(--accent); }
+.msg-bubble.msg-bubble-user code { background: rgba(255,255,255,0.1); color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+.msg-bubble.msg-bubble-user pre { background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 12px; overflow-x: auto; margin: 8px 0; }
+.msg-bubble.msg-bubble-user pre code { background: none; padding: 0; }
+.msg-bubble.msg-bubble-user a { color: #a78bfa; text-decoration: none; }
+.msg-bubble.msg-bubble-user a:hover { text-decoration: underline; }
+.msg-bubble.msg-bubble-user strong { color: #fff; }
+.msg-bubble.msg-bubble-user ul, .msg-bubble.msg-bubble-user ol { padding-left: 20px; margin: 6px 0; }
+.msg-bubble.msg-bubble-user li { margin: 3px 0; }
+
+.msg-bubble.msg-bubble-ai code { background: rgba(0,212,255,0.08); padding: 2px 6px; border-radius: 4px; font-family: 'Cascadia Code','Fira Code',monospace; font-size: 13px; color: var(--accent); }
+.msg-bubble.msg-bubble-ai pre { background: rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 14px; overflow-x: auto; margin: 10px 0; }
+.msg-bubble.msg-bubble-ai pre code { background: none; padding: 0; color: var(--text-primary); }
+.msg-bubble.msg-bubble-ai ul, .msg-bubble.msg-bubble-ai ol { padding-left: 20px; margin: 8px 0; }
+.msg-bubble.msg-bubble-ai li { margin: 4px 0; }
+.msg-bubble.msg-bubble-ai strong { color: #fff; }
+.msg-bubble.msg-bubble-ai a { color: var(--accent); text-decoration: none; }
+.msg-bubble.msg-bubble-ai a:hover { text-decoration: underline; }
+.msg-bubble.msg-bubble-ai h3, .msg-bubble.msg-bubble-ai h4 { margin: 12px 0 6px; color: #fff; font-weight: 700; }
+.msg-bubble.msg-bubble-ai hr { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 16px 0; }
+.msg-bubble.msg-bubble-ai blockquote { border-left: 2px solid var(--accent); padding-left: 12px; margin: 8px 0; color: var(--text-secondary); }
+.msg-bubble.msg-bubble-ai table { border-collapse: collapse; margin: 8px 0; width: 100%; font-size: 13px; }
+.msg-bubble.msg-bubble-ai th, .msg-bubble.msg-bubble-ai td { border: 1px solid rgba(255,255,255,0.08); padding: 6px 10px; text-align: left; }
+.msg-bubble.msg-bubble-ai th { background: rgba(255,255,255,0.04); color: var(--accent); font-weight: 600; }
+
+/* -- Sources -- */
+.msg-sources {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.msg-sources-title {
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  opacity: 0.6;
+}
+.msg-source-link {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--accent);
+  margin-right: 14px;
+  margin-bottom: 2px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  text-decoration: none;
+}
+.msg-source-link:hover { opacity: 1; text-decoration: underline; }
+
+/* -- Message Actions -- */
+.message-actions {
+  display: flex;
+  gap: 2px;
+  padding: 0 12px;
+  margin-top: 3px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.message:hover .message-actions { opacity: 1; }
+
+.msg-action-btn, .tts-btn {
+  padding: 3px 9px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: rgba(255,255,255,0.25);
+  font-size: 11px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.msg-action-btn:hover, .tts-btn:hover {
+  background: rgba(255,255,255,0.06);
+  color: var(--accent);
+}
 .tts-btn.speaking { background: var(--accent); color: #fff; }
 
 /* -- Search Indicator -- */
-.search-indicator { display: none; padding: 10px 16px; align-items: center; gap: 10px; color: var(--accent); font-size: 13px; animation: fadeUp 0.3s ease; }
+.search-indicator {
+  display: none;
+  padding: 8px 12px;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+  font-size: 13px;
+  animation: fadeUp 0.3s ease;
+  border-left: 2px solid var(--accent);
+  margin-left: 12px;
+}
 .search-indicator.active { display: flex; }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
 /* -- Typing Indicator -- */
-.typing-indicator { padding: 6px 16px; animation: fadeUp 0.3s ease; }
+.typing-indicator {
+  padding: 8px 12px;
+  animation: fadeUp 0.3s ease;
+  border-left: 2px solid rgba(0,217,255,0.2);
+  margin-left: 12px;
+}
 .typing-indicator-content { display: flex; align-items: center; gap: 10px; }
 .typing-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); animation: bounce 1.4s infinite; }
 .typing-dot:nth-child(2) { animation-delay: 0.2s; }
@@ -4218,12 +4269,12 @@ body.welcome-active {
   .main-container { flex-direction: column; }
   .chat-panel { min-width: unset; border-right: none; }
 
-  .chat-messages { padding: 10px 8px; }
-  .message { margin-bottom: 14px; }
-  .msg-row { gap: 8px; }
-  .msg-col { max-width: 85%; }
+  .chat-messages { padding: 14px 10px; }
+  .message { margin-bottom: 5px; }
+  .msg-col { max-width: 88%; }
   .msg-bubble { font-size: 14px; }
-  .msg-action-btn, .tts-btn { padding: 4px 8px; font-size: 10px; }
+  .msg-label { font-size: 10px; }
+  .msg-action-btn, .tts-btn { padding: 3px 7px; font-size: 10px; }
 
   .welcome-card { padding: 24px 20px 20px; border-radius: 24px; }
   .welcome-emoji { font-size: 40px; margin-bottom: 10px; }
@@ -4248,12 +4299,12 @@ body.welcome-active {
   .profile-btn { width: 28px; min-width: 28px; height: 28px; font-size: 11px; }
 
   .sidebar { top: 46px; height: calc(100vh - 46px); }
-  .chat-messages { padding: 8px 6px; }
-  .message { margin-bottom: 12px; }
-  .msg-row { gap: 6px; }
-  .msg-col { max-width: 88%; }
+  .chat-messages { padding: 10px 8px; }
+  .message { margin-bottom: 4px; }
+  .msg-col { max-width: 92%; }
   .msg-bubble { font-size: 13px; }
-  .msg-action-btn, .tts-btn { padding: 3px 7px; font-size: 10px; }
+  .msg-label { font-size: 9px; }
+  .msg-action-btn, .tts-btn { padding: 2px 6px; font-size: 9px; }
 
   .welcome-card { padding: 20px 16px 16px; border-radius: 20px; }
   .welcome-emoji { font-size: 36px; margin-bottom: 8px; }
@@ -4322,7 +4373,7 @@ try {
 // -- Firestore helpers --
 function fsDoc(col, doc) { 
   if (!db) {
-    console.error('? db not initialized!');
+    console.error('❌ db not initialized!');
     return null;
   }
   return db.collection(col).doc(doc);
@@ -4347,7 +4398,7 @@ function fsSet(col, doc, data) {
       }
     });
     
-    console.log(`?? fsSet('${col}', '${doc}'):`, loggableData);
+    console.log(`📤 fsSet('${col}', '${doc}'):`, loggableData);
     return fsDoc(col, doc).set(data, { merge: true }).then(() => {
       console.log(`? fsSet SUCCESS: ${col}/${doc}`);
       return true;
@@ -4372,7 +4423,7 @@ function fsGet(col, doc) {
     if (!db) throw new Error('Firestore not initialized');
     return fsDoc(col, doc).get().then(s => {
       const data = s.exists ? s.data() : null;
-      console.log(`?? fsGet('${col}', '${doc}'):`, data);
+      console.log(`📥 fsGet('${col}', '${doc}'):`, data);
       return data;
     }).catch(err => {
       console.error(`? fsGet FAILED: ${col}/${doc}`, err);
@@ -4387,7 +4438,7 @@ function fsGet(col, doc) {
 function fsOnSnap(col, doc, cb) { 
   try {
     if (!db) throw new Error('Firestore not initialized');
-    console.log(`?? fsOnSnap listener attached: ${col}/${doc}`);
+    console.log(`📡 fsOnSnap listener attached: ${col}/${doc}`);
     return fsDoc(col, doc).onSnapshot(
       s => cb(s.exists ? s.data() : null),
       err => {
@@ -4410,13 +4461,13 @@ function fsArrayUnion(v) { return firebase.firestore.FieldValue.arrayUnion(v); }
   if (!firestore) return;
   fsSet('stats', '_diagnostic', { ts: firebase.firestore.FieldValue.serverTimestamp() }).then(function() {
     fsDoc('stats', '_diagnostic').delete();
-    console.log('? Firestore write access OK');
+    console.log('✅ Firestore write access OK');
   }).catch(function(err) {
     if (err.code === 'permission-denied') {
-      console.warn('%c?? FIRESTORE SETUP REQUIRED ??', 'font-size:16px;font-weight:bold');
-      console.warn('%c1?? Enable Anonymous auth: Open Firebase Console ? Authentication ? Sign-in method ? Anonymous ? Enable ? Save', 'color:orange');
-      console.warn('%c2?? Update Firestore Rules: Open Firebase Console ? Firestore ? Rules ? paste:', 'color:orange');
-      console.warn(
+      console.log('%c⚠️ FIRESTORE SETUP REQUIRED ⚠️', 'font-size:16px;font-weight:bold');
+      console.log('%c1️⃣ Enable Anonymous auth: Open Firebase Console ? Authentication ? Sign-in method ? Anonymous ? Enable ? Save', 'color:orange');
+      console.log('%c2️⃣ Update Firestore Rules: Open Firebase Console ? Firestore ? Rules ? paste:', 'color:orange');
+      console.log(
         'rules_version = \'2\';\n' +
         'service cloud.firestore {\n' +
         '  match /databases/{database}/documents {\n' +
@@ -4425,7 +4476,7 @@ function fsArrayUnion(v) { return firebase.firestore.FieldValue.arrayUnion(v); }
         '    }\n' +
         '  }\n' +
         '}');
-      console.warn('%cThen reload this page.', 'color:orange');
+      console.log('%cThen reload this page.', 'color:orange');
     }
   });
 })();
@@ -4434,7 +4485,7 @@ function fsArrayUnion(v) { return firebase.firestore.FieldValue.arrayUnion(v); }
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     if (user.isAnonymous) {
-      console.log('?? Anonymous session:', user.uid);
+      console.log('👤 Anonymous session:', user.uid);
       return;
     }
 
@@ -4454,7 +4505,7 @@ firebase.auth().onAuthStateChanged(function(user) {
             lastActive: fsServerTs(),
             lastLogin: fsServerTs()
           }).catch(function(err) {
-            if (err.code === 'permission-denied') console.warn('?? Cannot update Firestore profile - check rules');
+            if (err.code === 'permission-denied') console.log('⚠️ Cannot update Firestore profile - check rules');
           });
           loadUserProfileFromFirestore(uid);
         } else {
@@ -4478,12 +4529,12 @@ firebase.auth().onAuthStateChanged(function(user) {
           }).then(function() {
             loadUserProfileFromFirestore(uid);
           }).catch(function(err) {
-            if (err.code === 'permission-denied') console.warn('?? Cannot create Firestore profile - check rules');
+            if (err.code === 'permission-denied') console.log('⚠️ Cannot create Firestore profile - check rules');
           });
         }
       }).catch(function(err) {
         if (err.code === 'permission-denied') {
-          console.warn('?? Firestore read denied. Update your Firestore rules (see earlier warning).');
+          console.log('⚠️ Firestore read denied. Update your Firestore rules (see earlier warning).');
         } else {
           console.error('Error checking Firestore user doc:', err);
         }
@@ -4497,9 +4548,9 @@ firebase.auth().onAuthStateChanged(function(user) {
     // No user � sign in anonymously for Firestore access
     firebase.auth().signInAnonymously().catch(function(err) {
       if (err.code === 'auth/admin-restricted-operation') {
-        console.warn('?? Anonymous sign-in disabled. Enable it in Firebase Console: Authentication ? Sign-in method ? Anonymous ? Enable.');
+        console.log('⚠️ Anonymous sign-in disabled. Enable it in Firebase Console: Authentication ? Sign-in method ? Anonymous ? Enable.');
       } else {
-        console.warn('?? Anonymous sign-in failed:', err.message);
+        console.log('⚠️ Anonymous sign-in failed:', err.message);
       }
     });
   }
@@ -4532,20 +4583,20 @@ let pendingUpdates = {};
 
 // Main comprehensive save function - saves ALL user data to Firestore
 async function saveUserProfileToFirestore() {
-  console.log('?? saveUserProfileToFirestore() called');
+  console.log('📝 saveUserProfileToFirestore() called');
   
   if (!firestore) {
-    console.error('? Firestore not initialized');
+    console.error('❌ Firestore not initialized');
     return;
   }
   
   const uid = firebase.auth().currentUser?.uid;
   if (!uid) {
-    console.error('? User not authenticated. Current user:', firebase.auth().currentUser);
+    console.error('❌ User not authenticated. Current user:', firebase.auth().currentUser);
     return;
   }
   
-  console.log('? Authenticated as:', uid);
+  console.log('✅ Authenticated as:', uid);
   
   const userData = {
     firstName: userProfile.firstName,
@@ -4564,13 +4615,13 @@ async function saveUserProfileToFirestore() {
     joined: userProfile.joined ? new Date(userProfile.joined).getTime() : fsServerTs()
   };
   
-  console.log('?? Saving to users/' + uid + ':', userData);
+  console.log('📤 Saving to users/' + uid + ':', userData);
   
   try {
     await fsSet('users', uid, userData);
-    console.log('? User profile SAVED to Firestore');
+    console.log('✅ User profile SAVED to Firestore');
   } catch (error) {
-    console.error('? FIRESTORE WRITE ERROR:', error);
+    console.error('❌ FIRESTORE WRITE ERROR:', error);
     console.error('Error code:', error.code);
     console.error('Error message:', error.message);
   }
@@ -4587,12 +4638,12 @@ function autoSaveUserProfile(delay = 2000) {
 // Batch update multiple user stats at once
 async function updateUserStatsInFirestore(updates = {}) {
   if (!firestore) {
-    console.warn('?? Firestore not initialized for batch update');
+    console.log('⚠️ Firestore not initialized for batch update');
     return;
   }
   const uid = firebase.auth().currentUser?.uid;
   if (!uid) {
-    console.warn('?? User not authenticated for batch update');
+    console.log('⚠️ User not authenticated for batch update');
     return;
   }
   
@@ -4612,24 +4663,24 @@ async function updateUserStatsInFirestore(updates = {}) {
   try {
     await fsSet('users', uid, statsUpdate);
     updateProfileDisplay();
-    console.log('? User stats batch updated:', updates);
+    console.log('✅ User stats batch updated:', updates);
   } catch (error) {
-    console.error('? Error updating user stats:', error);
+    console.error('❌ Error updating user stats:', error);
   }
 }
 
 // Increment specific stat (reputation, chatsCount, totalLikes, etc)
 async function incrementUserStat(statName, amount = 1) {
-  console.log(`?? incrementUserStat(${statName}, ${amount}) called`);
+  console.log(`📊 incrementUserStat(${statName}, ${amount}) called`);
   
   if (!firestore) {
-    console.error('? Firestore not initialized');
+    console.error('❌ Firestore not initialized');
     return;
   }
   
   const uid = firebase.auth().currentUser?.uid;
   if (!uid) {
-    console.error('? User not authenticated');
+    console.error('❌ ');
     return;
   }
   
@@ -4640,7 +4691,7 @@ async function incrementUserStat(statName, amount = 1) {
     updateObj[statName] = fsIncrement(amount);
     updateObj['lastActive'] = fsServerTs();
     
-    console.log(`?? Updating users/${uid} with:`, updateObj);
+    console.log(`📤 Updating users/${uid} with:`, updateObj);
     
     // Use fsSet with merge to properly handle Firestore writes
     await fsSet('users', uid, updateObj);
@@ -4682,11 +4733,11 @@ function syncGlobalStats() {
           statsMsgs.textContent = data.totalMessages;
         }
         
-        console.log('? Global stats synced:', data);
+        console.log('✅ Global stats synced:', data);
       }
     });
   } catch (error) {
-    console.error('? Error syncing global stats:', error);
+    console.error('❌ Error syncing global stats:', error);
   }
 }
 
@@ -4714,11 +4765,11 @@ function setupUserProfileListener() {
         
         updateProfileDisplay();
         
-        console.log('?? User profile updated from Firestore (real-time):', data);
+        console.log('🔄 User profile updated from Firestore (real-time):', data);
       }
     });
   } catch (error) {
-    console.error('? Error setting up profile listener:', error);
+    console.error('❌ Error setting up profile listener:', error);
   }
 }
 
@@ -4734,7 +4785,7 @@ function updateProfileUI(name, email, initial) {
 }
 
 function showApp() {
-  console.log('?? showApp() called - preparing to show main app');
+  console.log('🎯 showApp() called - preparing to show main app');
   
   const welcomeOverlay = document.getElementById('welcomeOverlay');
   const loginOverlay = document.getElementById('loginOverlay');
@@ -4742,12 +4793,12 @@ function showApp() {
   
   if (welcomeOverlay) {
     welcomeOverlay.style.display = 'none';
-    console.log('? Welcome overlay hidden');
+    console.log('✅ Welcome overlay hidden');
   }
   
   if (loginOverlay) {
     loginOverlay.style.display = 'none';
-    console.log('? Login overlay hidden');
+    console.log('✅ Login overlay hidden');
   }
   
   if (appContainer) {
@@ -4755,9 +4806,9 @@ function showApp() {
     appContainer.style.visibility = 'visible';
     appContainer.style.opacity = '1';
     appContainer.style.zIndex = '1000';
-    console.log('? App container displayed');
+    console.log('✅ App container displayed');
   } else {
-    console.error('? App container not found');
+    console.error('❌ ');
   }
   
   document.body.classList.remove('welcome-active');
@@ -4805,26 +4856,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ============ FIRESTORE DIAGNOSTIC TEST ============
 async function testFirestoreWrite() {
-  console.log('?? Starting Firestore diagnostic test...\n');
+  console.log('🧪 Starting Firestore diagnostic test...\n');
   
   // Test 1: Check if Firestore is initialized
   console.log('TEST 1: Firestore Initialization');
   if (!firestore || !db) {
-    console.error('? FAILED: Firestore not initialized');
+    console.error('❌ FAILED: Firestore not initialized');
     console.log('firestore:', firestore);
     console.log('db:', db);
     return;
   }
-  console.log('? PASSED: Firestore initialized\n');
+  console.log('✅ PASSED: Firestore initialized\n');
   
   // Test 2: Check if user is authenticated
   console.log('TEST 2: User Authentication');
   const user = firebase.auth().currentUser;
   if (!user) {
-    console.error('? FAILED: User not authenticated');
+    console.error('❌ FAILED: User not authenticated');
     return;
   }
-  console.log('? PASSED: User authenticated');
+  console.log('✅ PASSED: User authenticated');
   console.log('UID:', user.uid);
   console.log('Email:', user.email, '\n');
   
@@ -4837,11 +4888,11 @@ async function testFirestoreWrite() {
       testMessage: 'Simple diagnostic test'
     };
     
-    console.log('?? Attempting simple write:', testData);
+    console.log('📤 Attempting simple write:', testData);
     await fsSet('users', user.uid, testData);
-    console.log('? PASSED: Successfully wrote to users collection\n');
+    console.log('✅ PASSED: Successfully wrote to users collection\n');
   } catch (error) {
-    console.error('? FAILED: Cannot write to users collection');
+    console.error('❌ FAILED: Cannot write to users collection');
     console.error('Error:', error.message);
     console.error('Code:', error.code);
     console.error('Full error:', error, '\n');
@@ -4856,11 +4907,11 @@ async function testFirestoreWrite() {
       timestamp: new Date().toISOString()
     };
     
-    console.log('?? Attempting simple write:', testData);
+    console.log('📤 Attempting simple write:', testData);
     await fsSet('stats', 'global', testData);
-    console.log('? PASSED: Successfully wrote to stats/global\n');
+    console.log('✅ PASSED: Successfully wrote to stats/global\n');
   } catch (error) {
-    console.error('? FAILED: Cannot write to stats/global');
+    console.error('❌ FAILED: Cannot write to stats/global');
     console.error('Error:', error.message);
     console.error('Code:', error.code, '\n');
   }
@@ -4870,22 +4921,22 @@ async function testFirestoreWrite() {
   try {
     const readData = await fsGet('users', user.uid);
     if (readData && readData.testWrite) {
-      console.log('? PASSED: Successfully read test data from users collection');
+      console.log('✅ PASSED: Successfully read test data from users collection');
       console.log('Data:', readData);
     } else {
-      console.warn('?? Data not found or incomplete');
+      console.log('⚠️ Data not found or incomplete');
     }
   } catch (error) {
-    console.error('? FAILED: Cannot read from users collection');
+    console.error('❌ FAILED: Cannot read from users collection');
     console.error('Error:', error.message);
   }
   
-  console.log('\n?? Diagnostic test complete!\n');
+  console.log('\n✅ Diagnostic test complete!\n');
   console.log('If all tests PASSED:');
-  console.log('  ? Firestore is working correctly');
-  console.log('  ? Your Security Rules are set properly');
-  console.log('  ? Data should be saving now');
-  console.log('\nIf you see ? FAILED with code "permission-denied":');
+  console.log('  ✅ Firestore is working correctly');
+  console.log('  ✅ Your Security Rules are set properly');
+  console.log('  ✅ Data should be saving now');
+  console.log('\nIf you see ❌ FAILED with code "permission-denied":');
   console.log('  1. Go to Firebase Console > Firestore Database > Rules');
   console.log('  2. Copy and paste the security rules provided');
   console.log('  3. Click PUBLISH');
@@ -4897,7 +4948,7 @@ document.addEventListener('keydown', function(e) {
   if (e.ctrlKey && e.shiftKey && e.key === 'D') {
     console.clear();
     console.log('%c+--------------------------------------------+', 'color: #00ff00; font-weight: bold;');
-    console.log('%c�   SCHOLAR AI - FIRESTORE DIAGNOSTIC TEST   �', 'color: #00ff00; font-weight: bold;');
+    console.log('%cSCHOLAR AI - FIRESTORE DIAGNOSTIC TEST', 'color: #00ff00; font-weight: bold;');
     console.log('%c+--------------------------------------------+', 'color: #00ff00; font-weight: bold;');
     console.log('');
     testFirestoreWrite();
@@ -4906,7 +4957,7 @@ document.addEventListener('keydown', function(e) {
 
 // Also allow manual call from console
 window.testFS = testFirestoreWrite;
-console.log('%c?? Tip: Type testFS() in console to run diagnostic, or press Ctrl+Shift+D', 'color: #ffaa00;');
+console.log('%c💡 Tip: Type testFS() in console to run diagnostic, or press Ctrl+Shift+D', 'color: #ffaa00;');
 
 function initializeWelcomeLikes() {
   const likeBtn = document.getElementById('welcomeLikeBtn');
@@ -4928,7 +4979,7 @@ function initializeWelcomeLikes() {
 }
 
 function toggleWelcomeLike() {
-  console.log('?? toggleWelcomeLike() called');
+  console.log('❤️ toggleWelcomeLike() called');
   
   try {
     const likeBtn = document.getElementById('welcomeLikeBtn');
@@ -4936,7 +4987,7 @@ function toggleWelcomeLike() {
     const likeTooltip = document.getElementById('likeTooltip');
     
     if (!likeBtn || !likeCount) {
-      console.error('? Like button or count element not found');
+      console.error('❌ Like button or count element not found');
       return;
     }
     
@@ -4958,18 +5009,18 @@ function toggleWelcomeLike() {
         setTimeout(() => { likeTooltip.classList.remove('show'); }, 2000);
       }
       
-      try { createFloatingHeart(likeBtn); } catch(e) { console.warn('Heart anim error:', e); }
+      try { createFloatingHeart(likeBtn); } catch(e) { console.log('Heart anim error:', e); }
       updateLikesInFirestore(newCount, true);
     }
   } catch (e) {
-    console.error('? toggleWelcomeLike error:', e);
+    console.error('❌ toggleWelcomeLike error:', e);
   }
 }
 
 function createFloatingHeart(element) {
   const heart = document.createElement('div');
   heart.className = 'like-indicator';
-  heart.textContent = '??';
+  heart.textContent = '❤️';
   const rect = element.getBoundingClientRect();
   heart.style.left = (rect.left + rect.width / 2 - 12) + 'px';
   heart.style.top = (rect.top + rect.height / 2) + 'px';
@@ -4979,19 +5030,19 @@ function createFloatingHeart(element) {
 
 function updateLikesInFirestore(count, isLiked) {
   try {
-    if (!firestore) { console.warn('?? Firestore not connected.'); return; }
+    if (!firestore) { console.log('⚠️ Firestore not connected.'); return; }
     
     const userId = firebase.auth().currentUser?.uid || 'anonymous';
     const timestamp = new Date().toISOString();
     
     fsSet('stats', 'global', { totalLikes: count, lastUpdated: timestamp }).catch(function(err) {
       if (err.code === 'permission-denied') {
-        console.warn('?? Like count not saved - Firestore rules need updating');
+        console.log('⚠️ Like count not saved - Firestore rules need updating');
       }
     });
     fsSet('likes', userId, { liked: isLiked, timestamp: timestamp }).catch(function(err) {
       if (err.code === 'permission-denied') {
-        console.warn('?? Like status not saved - update Firestore rules');
+        console.log('⚠️ Like status not saved - update Firestore rules');
       }
     });
     
@@ -5005,7 +5056,7 @@ function updateLikesInFirestore(count, isLiked) {
         lastActive: fsServerTs()
       }).catch(function(err) {
         if (err.code === 'permission-denied') {
-          console.warn('?? Profile stats not updated - Firestore rules need fixing');
+          console.log('⚠️ Profile stats not updated - Firestore rules need fixing');
         }
       });
       userProfile.reputation = Math.max(0, (userProfile.reputation || 100) + repChange);
@@ -5028,7 +5079,7 @@ function initializeMessagesCounter() {
 let localMessageCount = 0;
 
 function incrementMessagesCounter() {
-  console.log('?? incrementMessagesCounter() called');
+  console.log('💬 incrementMessagesCounter() called');
   
   localMessageCount++;
   
@@ -5044,7 +5095,7 @@ function incrementMessagesCounter() {
   const uid = firebase.auth().currentUser?.uid;
   if (uid) {
     incrementUserStat('totalMessages', 1).catch(function(err) {
-      console.warn('?? totalMessages not saved to profile:', err?.message);
+      console.error('⚠️ totalMessages not saved to profile:', err?.message);
     });
     
     userProfile.totalMessages = (userProfile.totalMessages || 0) + 1;
@@ -5057,7 +5108,7 @@ function updateMessagesInFirestore(count) {
   // Use atomic increment so all users' messages add up
   fsSet('stats', 'global', { totalMessages: fsIncrement(1), lastUpdated: fsServerTs() }).catch(function(err) {
     if (err.code === 'permission-denied') {
-      console.warn('?? Message count not saved - update Firestore rules');
+      console.error('⚠️ Message count not saved - update Firestore rules');
     }
   });
 }
@@ -5124,7 +5175,7 @@ function updateMessagesInFirestore(count) {
 
   <div class="welcome-messages-container">
     <div class="messages-badge">
-      <span class="messages-icon">??</span>
+      <span class="messages-icon">💬</span>
       <span class="messages-count" id="messagesCount">0</span>
     </div>
     <span class="messages-label">Messages</span>
@@ -5132,7 +5183,7 @@ function updateMessagesInFirestore(count) {
 
   <div class="welcome-like-container">
     <button class="welcome-like-btn" id="welcomeLikeBtn" onclick="toggleWelcomeLike()">
-      <span class="like-icon">??</span>
+      <span class="like-icon">❤️</span>
       <span class="like-count" id="welcomeLikeCount">0</span>
     </button>
     <div class="like-tooltip" id="likeTooltip">Thanks for the love!</div>
@@ -5154,7 +5205,7 @@ function updateMessagesInFirestore(count) {
 
     <div class="welcome-features">
       <div class="welcome-feature-item">
-        <span class="welcome-feature-icon">??</span>
+        <span class="welcome-feature-icon">✨</span>
         <span class="welcome-feature-text"><strong>Knowledge Base</strong>Articles, images &amp; metadata</span>
       </div>
       <div class="welcome-feature-item">
@@ -5162,7 +5213,7 @@ function updateMessagesInFirestore(count) {
         <span class="welcome-feature-text"><strong>Smart Tools</strong>Calculator, weather, converter &amp; more</span>
       </div>
       <div class="welcome-feature-item">
-        <span class="welcome-feature-icon">??</span>
+        <span class="welcome-feature-icon">✨</span>
         <span class="welcome-feature-text"><strong>Interactive</strong>Voice input, TTS &amp; live browser</span>
       </div>
     </div>
@@ -5196,7 +5247,7 @@ function updateMessagesInFirestore(count) {
 
   </div>
   <div class="header-right">
-    <button class="btn-icon" onclick="openSettings()" title="Settings & Preferences">??</button>
+    <button class="btn-icon" onclick="openSettings()" title="Settings & Preferences">⚙️</button>
     <button class="btn-icon" onclick="showHelp()" title="Help & Documentation">?</button>
 
     <button class="profile-btn" id="profileBtn" onclick="toggleProfile()" title="User Profile">U</button>
@@ -5214,19 +5265,19 @@ function updateMessagesInFirestore(count) {
     <div class="profile-content">
       <div class="profile-section-label">Account</div>
       <div class="profile-item">
-        <span class="profile-item-label">?? Email</span>
+        <span class="profile-item-label">📧 Email</span>
         <span class="profile-item-value" id="profileEmail">user@email.com</span>
       </div>
       <div class="profile-item">
-        <span class="profile-item-label">?? Username</span>
+        <span class="profile-item-label">👤 Username</span>
         <span class="profile-item-value" id="profileUsername">username</span>
       </div>
       <div class="profile-item">
-        <span class="profile-item-label">?? User ID</span>
+        <span class="profile-item-label">🆔 User ID</span>
         <span class="profile-item-value" id="profileID">ID-00001</span>
       </div>
       <div class="profile-item">
-        <span class="profile-item-label">?? Joined</span>
+        <span class="profile-item-label">📅 Joined</span>
         <span class="profile-item-value" id="profileJoined">Jan 1, 2024</span>
       </div>
       <div class="profile-section-label">Activity</div>
@@ -5250,17 +5301,17 @@ function updateMessagesInFirestore(count) {
       </div>
       <div class="profile-section-label">Preferences</div>
       <div class="profile-item">
-        <span class="profile-item-label">?? Role</span>
+        <span class="profile-item-label">🎭 Role</span>
         <span class="profile-item-value" id="profileRole">Student</span>
       </div>
       <div class="profile-item">
-        <span class="profile-item-label">?? Language</span>
+        <span class="profile-item-label">🌐 Language</span>
         <span class="profile-item-value" id="profileLang">English</span>
       </div>
     </div>
     <div class="profile-actions">
-      <button class="profile-action-btn" onclick="editProfile()">?? Edit Profile</button>
-      <button class="profile-action-btn logout" onclick="logoutUser()">?? Logout</button>
+      <button class="profile-action-btn" onclick="editProfile()">✏️ Edit Profile</button>
+      <button class="profile-action-btn logout" onclick="logoutUser()">🚪 Logout</button>
     </div>
   </div>
 </header>
@@ -5274,7 +5325,7 @@ function updateMessagesInFirestore(count) {
     
     <!-- Conversations Section -->
     <div class="sidebar-section">
-      <div class="sidebar-section-title">?? Conversations</div>
+      <div class="sidebar-section-title">💬 Conversations</div>
       <div class="sidebar-content" id="sidebarContent"></div>
     </div>
     
@@ -5283,8 +5334,8 @@ function updateMessagesInFirestore(count) {
   <div class="chat-panel">
     <!-- Chat Actions -->
     <div class="chat-actions" style="display:none;">
-      <button class="action-btn" onclick="exportChat()">?? Export</button>
-      <button class="action-btn" onclick="searchMessages()">?? Search Chat</button>
+      <button class="action-btn" onclick="exportChat()">📤 Export</button>
+      <button class="action-btn" onclick="searchMessages()">🔍 Search Chat</button>
     </div>
 
     <!-- Stats Panel -->
@@ -5299,16 +5350,16 @@ function updateMessagesInFirestore(count) {
     <div class="chat-messages" id="chatMessages">
       <div class="welcome-msg">
         <div class="welcome-card">
-          <div class="welcome-emoji">??</div>
+          <div class="welcome-emoji">🤖</div>
           <h2 class="welcome-title">Hey there!</h2>
           <p class="welcome-sub">What would you like to explore?</p>
           <div class="quick-actions">
-            <button class="qa-btn" onclick="handleQuickAction('Explain quantum computing')"><span>??</span> Learn</button>
-            <button class="qa-btn" onclick="handleQuickAction('Help me understand')"><span>??</span> Code</button>
-            <button class="qa-btn" onclick="handleQuickAction('Summarize this')"><span>??</span> Summary</button>
-            <button class="qa-btn" onclick="handleQuickAction('Test my knowledge')"><span>??</span> Quiz</button>
-            <button class="qa-btn" onclick="handleQuickAction('Latest research')"><span>??</span> Trends</button>
-            <button class="qa-btn" onclick="handleQuickAction('Real world examples')"><span>??</span> Examples</button>
+            <button class="qa-btn" onclick="handleQuickAction('Explain quantum computing')"><span>🧠</span> Learn</button>
+            <button class="qa-btn" onclick="handleQuickAction('Help me understand')"><span>💻</span> Code</button>
+            <button class="qa-btn" onclick="handleQuickAction('Summarize this')"><span>📝</span> Summary</button>
+            <button class="qa-btn" onclick="handleQuickAction('Test my knowledge')"><span>❓</span> Quiz</button>
+            <button class="qa-btn" onclick="handleQuickAction('Latest research')"><span>📈</span> Trends</button>
+            <button class="qa-btn" onclick="handleQuickAction('Real world examples')"><span>💡</span> Examples</button>
           </div>
         </div>
       </div>
@@ -5338,7 +5389,7 @@ function updateMessagesInFirestore(count) {
             <span class="model-speed">Fast</span>
           </button>
           <button class="model-toggle-btn" id="modelBtnDeepthink" onclick="selectModel('deepthink', this)" data-model="deepthink">
-            <span class="model-icon">??</span>
+            <span class="model-icon">🧠</span>
             <span class="model-text">DeepThink</span>
             <span class="model-speed">Smart</span>
           </button>
@@ -5354,7 +5405,7 @@ function updateMessagesInFirestore(count) {
       <div class="char-count" id="charCount"></div>
       <div class="chat-input-wrapper">
         <textarea class="chat-input" id="chatInput" placeholder="Type your question or command here..." rows="1"></textarea>
-        <button class="voice-btn" id="voiceBtn" onclick="toggleVoiceInput()" title="Activate Voice Input">???</button>
+        <button class="voice-btn" id="voiceBtn" onclick="toggleVoiceInput()" title="Activate Voice Input">🎤</button>
         <button class="send-btn" id="sendBtn" onclick="sendMessage()" aria-label="Send">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4z"/><path d="m22 2-10 10"/></svg>
         </button>
@@ -5375,7 +5426,7 @@ function updateMessagesInFirestore(count) {
       </div>
     </div>
     <div class="quick-links">
-      <a class="quick-link highlight" onclick="openDeepSeek()">?? DeepSeek</a>
+      <a class="quick-link highlight" onclick="openDeepSeek()">🔗 DeepSeek</a>
       <a class="quick-link" onclick="quickNav('https://www.google.com/webhp?igu=1')">Google</a>
       <a class="quick-link" onclick="quickNav('https://en.wikipedia.org')">Wikipedia</a>
       <a class="quick-link" onclick="quickNav('https://www.youtube.com')">YouTube</a>
@@ -5396,13 +5447,13 @@ function updateMessagesInFirestore(count) {
 <div class="settings-overlay" id="settingsOverlay" onclick="if(event.target===this)closeSettings()">
   <div class="settings-panel">
     <div class="settings-title">
-      <span>?? Settings</span>
+      <span>⚙️ Settings</span>
       <button class="btn-icon" onclick="closeSettings()" style="width:28px;height:28px;font-size:14px;">?</button>
     </div>
     
     <!-- Theme Section -->
     <div style="margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border);">
-      <div style="font-weight: 600; font-size: 12px; color: var(--accent); margin-bottom: 8px; text-transform: uppercase;">?? Appearance</div>
+      <div style="font-weight: 600; font-size: 12px; color: var(--accent); margin-bottom: 8px; text-transform: uppercase;">🎨 Appearance</div>
       <div class="settings-row"><span>Dark Mode</span><div class="toggle" id="darkModeToggle" onclick="toggleDarkMode()"></div></div>
       <div class="settings-row">
         <span>Font Size</span>
@@ -5440,7 +5491,7 @@ function updateMessagesInFirestore(count) {
     
     <!-- Advanced Section -->
     <div style="margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border);">
-      <div style="font-weight: 600; font-size: 12px; color: var(--accent); margin-bottom: 8px; text-transform: uppercase;">?? Advanced</div>
+      <div style="font-weight: 600; font-size: 12px; color: var(--accent); margin-bottom: 8px; text-transform: uppercase;">⚙️ Advanced</div>
       <div class="settings-row">
         <span>Text-to-Speech Speed</span>
         <select class="settings-select" id="ttsSpeed">
@@ -5476,15 +5527,15 @@ function updateMessagesInFirestore(count) {
           <option value="es">Espa�ol</option>
           <option value="fr">Fran�ais</option>
           <option value="de">Deutsch</option>
-          <option value="zh">??</option>
-          <option value="ar">???????</option>
+          <option value="zh">🇨🇳</option>
+          <option value="ar">🇸🇦</option>
         </select>
       </div>
     </div>
     
     <!-- Actions Section -->
     <div style="display: flex; gap: 8px; margin-top: 16px;">
-      <button onclick="clearAllData()" style="flex: 1; padding: 8px; background: var(--danger); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600;">??? Clear All Data</button>
+      <button onclick="clearAllData()" style="flex: 1; padding: 8px; background: var(--danger); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600;">🗑️ Clear All Data</button>
       <button onclick="closeSettings()" style="flex: 1; padding: 8px; background: var(--accent); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600;">? Done</button>
     </div>
   </div>
@@ -5599,11 +5650,17 @@ async function getAIResponse(messages, modeKey) {
     default:
       // Wikipedia search with mode support
       try {
-        const wiki = await searchWikipedia(lastMsg, modeKey);
+        // Clean up the query by removing common question words
+        let cleanedQuery = lastMsg.toLowerCase().trim();
+        cleanedQuery = cleanedQuery.replace(/^(what is|what are|what's|tell me about|who is|who are|who's|where is|where are|when is|when are|how|why|can you|could you|would you|should you|do you|does|did|will|would|could|might|may|must|shall|should)\s+/i, '');
+        cleanedQuery = cleanedQuery.replace(/\?+$/g, '').trim();
+        // If we stripped everything, use original
+        const queryToUse = cleanedQuery.length > 0 ? cleanedQuery : lastMsg;
+        const wiki = await searchWikipedia(queryToUse, modeKey);
         if (wiki && wiki.summary) {
           const response = wiki.summary;
           cacheResponse(messages, response);
-          const modelName = modeKey === 'deepthink' ? 'Flash Scholar DeepThink ??' : 'Flash Scholar Easy ??';
+          const modelName = modeKey === 'deepthink' ? 'Flash Scholar DeepThink 🎓' : 'Flash Scholar Easy ⚡';
           return { success: true, text: response, model: modelName, url: wiki.url };
         }
       } catch (e) {}
@@ -5622,92 +5679,206 @@ let lastSearchError = '';
 async function searchWikipedia(query, mode = 'easy') {
   lastSearchError = '';
 
-  // BALANCED Method: Full article content + 2 images with fast loading
+  // ENHANCED QUERY CLEANING for better Wikipedia matching
+  const cleanQuery = (q) => {
+    // Remove extra spaces and trim
+    q = q.trim().replace(/\s+/g, ' ');
+    
+    // Remove punctuation at the end
+    q = q.replace(/[?!.,;:'"]+$/g, '').trim();
+    
+    // Remove very common filler phrases
+    q = q.replace(/^(please\s+)?/i, '');
+    q = q.replace(/\s+(please|thanks|please|help|me|us|i|you|he|she|it|they)?$/i, '');
+    
+    return q.trim();
+  };
+
+  const originalQuery = query;
+  let searchQuery = cleanQuery(query);
+
+  // If cleaned query is too short, try to extract meaningful keywords
+  if (searchQuery.length < 3) {
+    searchQuery = originalQuery;
+  }
+
+  // Try primary search with cleaned query
   try {
-    // Search for the article
     const searchResp = await fetch(
-      `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&origin=*&srlimit=1`,
+      `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(searchQuery)}&format=json&origin=*&srlimit=3`,
       { signal: AbortSignal.timeout(8000) }
     );
 
     if (searchResp.ok) {
       const searchData = await searchResp.json();
-      if (searchData.query?.search?.[0]) {
-        const pageTitle = searchData.query.search[0].title;
+      
+      // Try all results until we find a good match
+      const results = searchData.query?.search || [];
+      
+      for (let result of results) {
+        const pageTitle = result.title;
+        
+        try {
+          // Get COMPLETE full article content
+          const extractResp = await fetch(
+            `https://en.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(pageTitle)}&prop=extracts|images&exintro=0&explaintext=1&exsectionformat=wiki&exlimit=max&imlimit=10&format=json&origin=*`,
+            { signal: AbortSignal.timeout(12000) }
+          );
 
-        // Get COMPLETE full article content + images
-        const extractResp = await fetch(
-          `https://en.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(pageTitle)}&prop=extracts|images&exintro=0&explaintext=1&exsectionformat=wiki&exlimit=max&imlimit=10&format=json&origin=*`,
-          { signal: AbortSignal.timeout(12000) }
-        );
+          if (extractResp.ok) {
+            const extractData = await extractResp.json();
+            const pages = extractData.query?.pages;
+            if (pages) {
+              const pageId = Object.keys(pages)[0];
+              const page = pages[pageId];
 
-        if (extractResp.ok) {
-          const extractData = await extractResp.json();
-          const pages = extractData.query?.pages;
-          if (pages) {
-            const pageId = Object.keys(pages)[0];
-            const page = pages[pageId];
+              // Skip if page has no content or is a redirect/disambiguation
+              if (!page || !page.extract || page.extract.length < 50) {
+                continue;
+              }
+              if (page.extract.toLowerCase().includes('may refer to')) {
+                continue;
+              }
 
-            if (page && page.extract) {
-              // FULL COMPLETE article with detailed formatting - adjust based on mode
-              let articleText = page.extract;
-              
-              let formattedContent = `# ?? ${page.title}\n\n`;
-              
-              if (mode === 'deepthink') {
-                // DeepThink Mode: Full comprehensive article with 100-200 lines
-                const sentences = articleText.match(/[^.!?]+[.!?]+/g) || [];
+              // Found a good page, process it
+              return await processWikipediaPage(page, mode);
+            }
+          }
+        } catch (e) {
+          console.error('Error processing search result:', e);
+          continue;
+        }
+      }
+      
+      // If no good results found, throw error to trigger fallback methods
+      throw new Error('No suitable Wikipedia page found');
+    }
+  } catch (e1) {
+    lastSearchError = 'Primary search failed: ' + (e1.message || e1);
+  }
+
+  // METHOD 2: Try with truncated/simplified query
+  try {
+    const words = originalQuery.split(/\s+/).filter(w => w.length > 3);
+    if (words.length > 1) {
+      // Try searching with just first few words
+      const simplifiedQuery = words.slice(0, Math.min(3, words.length)).join(' ');
+      
+      const searchResp = await fetch(
+        `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(simplifiedQuery)}&format=json&origin=*&srlimit=3`,
+        { signal: AbortSignal.timeout(8000) }
+      );
+
+      if (searchResp.ok) {
+        const searchData = await searchResp.json();
+        const results = searchData.query?.search || [];
+        
+        for (let result of results) {
+          try {
+            const extractResp = await fetch(
+              `https://en.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(result.title)}&prop=extracts|images&exintro=0&explaintext=1&exsectionformat=wiki&exlimit=max&imlimit=10&format=json&origin=*`,
+              { signal: AbortSignal.timeout(12000) }
+            );
+
+            if (extractResp.ok) {
+              const extractData = await extractResp.json();
+              const pages = extractData.query?.pages;
+              if (pages) {
+                const pageId = Object.keys(pages)[0];
+                const page = pages[pageId];
                 
-                if (sentences.length > 0) {
-                  // Show all sentences for comprehensive understanding
-                  formattedContent += `**Complete Article:**\n\n`;
-                  let lineCount = 0;
-                  for (let i = 0; i < sentences.length && lineCount < 200; i++) {
-                    const sentence = sentences[i].trim();
-                    if (sentence.length > 20) {
-                      formattedContent += `${sentence}\n\n`;
-                      lineCount++;
-                      // Add section breaks every 10-15 lines for better readability
-                      if (lineCount % 12 === 0 && lineCount < 180) {
-                        formattedContent += `\n---\n\n`;
-                      }
-                    }
-                  }
-                  
-                  // Add summary statistics
-                  formattedContent += `\n\n**Article Statistics:**\n`;
-                  formattedContent += `- Total paragraphs: ${lineCount}\n`;
-                  formattedContent += `- Source: Wikipedia - ${page.title}\n`;
-                  formattedContent += `- Mode: DeepThink Comprehensive Analysis\n`;
-                } else {
-                  formattedContent += articleText;
-                }
-              } else {
-                // Easy Mode: Concise format with overview and key points
-                const sentences = articleText.match(/[^.!?]+[.!?]+/g) || [];
-                
-                if (sentences.length > 0) {
-                  // First 3-4 sentences as intro
-                  formattedContent += `**Overview:**\n${sentences.slice(0, 3).join('').trim()}\n\n`;
-                  
-                  // Group remaining sentences into bullet points
-                  formattedContent += `**Key Information:**\n`;
-                  for (let i = 3; i < sentences.length && i < 15; i++) {
-                    const sentence = sentences[i].trim();
-                    if (sentence.length > 20) {
-                      formattedContent += `- ${sentence}\n`;
-                    }
-                  }
-                } else {
-                  formattedContent += articleText;
+                if (page && page.extract && page.extract.length > 50) {
+                  return await processWikipediaPage(page, mode);
                 }
               }
-              
-              let content = formattedContent + `\n`;
+            }
+          } catch (e) {}
+        }
+      }
+    }
+  } catch (e2) {
+    lastSearchError += ' | Simplified search failed: ' + (e2.message || e2);
+  }
 
-              // Get 2 images with basic information
-              let images = [];
-              if (page.images && page.images.length > 0) {
+  // METHOD 3: DuckDuckGo search as fallback
+  try {
+    const results = await searchDDG(originalQuery);
+    if (results && results.length > 0 && results[0].text) {
+      return {
+        title: originalQuery,
+        summary: `# 📄 ${originalQuery}\n\n${results[0].text}`,
+        url: results[0].url || '',
+        imageCount: 0
+      };
+    }
+  } catch (e3) {
+    lastSearchError += ' | DuckDuckGo search failed: ' + (e3.message || e3);
+  }
+
+  return null;
+}
+
+// Process Wikipedia page and format content
+async function processWikipediaPage(page, mode = 'easy') {
+  if (!page || !page.extract) return null;
+  
+  const articleText = page.extract;
+  let formattedContent = `# 📄 ${page.title}\n\n`;
+              
+  if (mode === 'deepthink') {
+    // DeepThink Mode: Full comprehensive article with 100-200 lines
+    const sentences = articleText.match(/[^.!?]+[.!?]+/g) || [];
+    
+    if (sentences.length > 0) {
+      // Show all sentences for comprehensive understanding
+      formattedContent += `**Complete Article:**\n\n`;
+      let lineCount = 0;
+      for (let i = 0; i < sentences.length && lineCount < 200; i++) {
+        const sentence = sentences[i].trim();
+        if (sentence.length > 20) {
+          formattedContent += `${sentence}\n\n`;
+          lineCount++;
+          // Add section breaks every 10-15 lines for better readability
+          if (lineCount % 12 === 0 && lineCount < 180) {
+            formattedContent += `\n---\n\n`;
+          }
+        }
+      }
+      
+      // Add summary statistics
+      formattedContent += `\n\n**Article Statistics:**\n`;
+      formattedContent += `- Total paragraphs: ${lineCount}\n`;
+      formattedContent += `- Source: Wikipedia - ${page.title}\n`;
+      formattedContent += `- Mode: DeepThink Comprehensive Analysis\n`;
+    } else {
+      formattedContent += articleText;
+    }
+  } else {
+    // Easy Mode: Concise format with overview and key points
+    const sentences = articleText.match(/[^.!?]+[.!?]+/g) || [];
+    
+    if (sentences.length > 0) {
+      // First 3-4 sentences as intro
+      formattedContent += `**Overview:**\n${sentences.slice(0, 3).join('').trim()}\n\n`;
+      
+      // Group remaining sentences into bullet points
+      formattedContent += `**Key Information:**\n`;
+      for (let i = 3; i < sentences.length && i < 15; i++) {
+        const sentence = sentences[i].trim();
+        if (sentence.length > 20) {
+          formattedContent += `- ${sentence}\n`;
+        }
+      }
+    } else {
+      formattedContent += articleText;
+    }
+  }
+  
+  let content = formattedContent + `\n`;
+
+  // Get 2 images with basic information
+  let images = [];
+  if (page.images && page.images.length > 0) {
                 // Filter and get only 2 images
                 const imageTitles = page.images
                   .filter(img => {
@@ -5798,7 +5969,7 @@ async function searchWikipedia(query, mode = 'easy') {
                       }
                     }
                   } catch (imgErr) {
-                    console.warn('Image detail fetch failed, using basic info:', imgErr);
+                    console.error('Image detail fetch failed, using basic info:', imgErr);
                     // Fallback: at least add the names
                     imageTitles.forEach(title => {
                       images.push({
@@ -5812,7 +5983,7 @@ async function searchWikipedia(query, mode = 'easy') {
 
               // Add images section with complete information
               if (images.length > 0) {
-                content += `---\n\n## ?? Images\n\n`;
+                content += `---\n\n## 🖼️ Images\n\n`;
                 images.forEach((img, idx) => {
                   content += `### Image ${idx + 1}: ${img.title}\n\n`;
                   if (img.url) {
@@ -5821,155 +5992,20 @@ async function searchWikipedia(query, mode = 'easy') {
                   
                   // Add ONLY the image description - no source information
                   if (img.description) {
-                    content += `**?? About this image:**\n${img.description}\n\n`;
+                    content += `**📝 About this image:**\n${img.description}\n\n`;
                   }
                   
                   // Add technical details only
-                  content += `**?? Details:** ${img.width}�${img.height} px | ${img.mime}\n\n`;
+                  content += `**🔍 Details:** ${img.width}�${img.height} px | ${img.mime}\n\n`;
                 });
               }
 
-              return {
-                title: page.title,
-                summary: content,
-                url: page.fullurl || '',
-                imageCount: images.length
-              };
-            }
-          }
-        }
-      }
-    }
-  } catch (e) {
-    lastSearchError = 'Method 1 failed: ' + (e.message || e);
-    console.warn('Wikipedia search method 1 failed:', e);
-  }
-
-  // Method 2: REST API - FAST fallback with complete content
-  try {
-    const htmlResp = await fetch(
-      `https://en.wikipedia.org/api/rest_v1/page/html/${encodeURIComponent(query)}`,
-      { signal: AbortSignal.timeout(10000) }
-    );
-
-    if (htmlResp.ok) {
-      const htmlContent = await htmlResp.text();
-      
-      // Extract title
-      const titleMatch = htmlContent.match(/<h1[^>]*>([^<]+)<\/h1>/);
-      const title = titleMatch ? titleMatch[1] : query;
-      
-      // Extract images with alt text for descriptions
-      const imageMatches = htmlContent.match(/<figure[^>]*>[\s\S]*?<\/figure>|<img[^>]+src="([^"]+)"[^>]*/g) || [];
-      let imageUrls = [];
-      
-      imageMatches.forEach(match => {
-        if (imageUrls.length < 2) { // Only 2 images
-          // Try to extract from figure first (has more context)
-          const figureAlt = match.match(/alt="([^"]*)"/);
-          const figureCaption = match.match(/<figcaption[^>]*>([^<]+)<\/figcaption>/);
-          
-          const srcMatch = match.match(/src="([^"]+)"/);
-          if (srcMatch) {
-            const url = srcMatch[1];
-            if (!url.includes('sprite') && !url.includes('icon') && url.includes('wikipedia')) {
-              const alt = figureAlt ? figureAlt[1] : 'Image';
-              const caption = figureCaption ? figureCaption[1] : '';
-              imageUrls.push({
-                url: url,
-                alt: alt,
-                caption: caption
-              });
-            }
-          }
-        }
-      });
-      
-      // Extract MORE content - up to 30 paragraphs for complete information
-      let textContent = `# ?? ${title}\n\n`;
-      const paragraphs = htmlContent.match(/<p[^>]*>[\s\S]*?<\/p>/g) || [];
-      paragraphs.slice(0, 30).forEach(p => {
-        let text = p.replace(/<[^>]+>/g, '').trim();
-        if (text.length > 20) {
-          textContent += text + '\n\n';
-        }
-      });
-
-      // Add 2 images if found with descriptions
-      if (imageUrls.length > 0) {
-        textContent += `---\n\n## ?? Images\n\n`;
-        imageUrls.forEach((img, idx) => {
-          textContent += `### Image ${idx + 1}\n\n`;
-          textContent += `![${img.alt}](${img.url})\n\n`;
-          if (img.caption) {
-            textContent += `**Caption:** ${img.caption}\n\n`;
-          } else if (img.alt) {
-            textContent += `**Description:** ${img.alt}\n\n`;
-          }
-        });
-      }
-
-      return {
-        title: title,
-        summary: textContent,
-        url: `https://en.wikipedia.org/wiki/${encodeURIComponent(title)}`,
-        imageCount: imageUrls.length
-      };
-    }
-  } catch (e) {
-    lastSearchError += ' | REST API failed: ' + (e.message || e);
-    console.warn('Wikipedia search method 2 failed:', e);
-  }
-
-  // Method 3: JSONP fast fallback
-  try {
-    const result = await new Promise((resolve, reject) => {
-      const callbackName = 'wikiCallback_' + Date.now();
-      const timeout = setTimeout(() => {
-        delete window[callbackName];
-        if (document.head.contains(script)) document.head.removeChild(script);
-        reject(new Error('JSONP timeout'));
-      }, 8000);
-
-      window[callbackName] = function(data) {
-        clearTimeout(timeout);
-        delete window[callbackName];
-        if (document.head.contains(script)) document.head.removeChild(script);
-        resolve(data);
-      };
-
-      const script = document.createElement('script');
-      script.src = `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&callback=${callbackName}&srlimit=1`;
-      script.onerror = () => {
-        clearTimeout(timeout);
-        delete window[callbackName];
-        if (document.head.contains(script)) document.head.removeChild(script);
-        reject(new Error('JSONP error'));
-      };
-      document.head.appendChild(script);
-    });
-
-    if (result.query?.search?.[0]) {
-      const pageTitle = result.query.search[0].title;
-      const snippet = result.query.search[0].snippet
-        .replace(/<[^>]+>/g, '')
-        .replace(/&nbsp;/g, ' ')
-        .replace(/&quot;/g, '"')
-        .replace(/&amp;/g, '&');
-
-      return {
-        title: pageTitle,
-        summary: `# ?? ${pageTitle}\n\n${snippet}`,
-        url: `https://en.wikipedia.org/wiki/${encodeURIComponent(pageTitle)}`,
-        imageCount: 0
-      };
-    }
-  } catch (e) {
-    lastSearchError += ' | JSONP failed: ' + (e.message || e);
-    console.warn('Wikipedia search method 3 failed:', e);
-  }
-
-  return null;
+  return {
+    title: page.title,
+    summary: content,
+    url: page.fullurl || '',
+    imageCount: 0
+  };
 }
 
 async function searchDDG(query) {
@@ -6001,7 +6037,7 @@ async function sendMessage() {
     if (uid) {
       userProfile.chatsCount = (userProfile.chatsCount || 0) + 1;
       incrementUserStat('chatsCount', 1).catch(function(err) {
-        console.warn('?? chatsCount not saved:', err?.message);
+        console.error('⚠️ chatsCount not saved:', err?.message);
       });
     }
   }
@@ -6095,50 +6131,50 @@ async function sendMessage() {
 function getPredefinedResponse(query) {
   const responses = {
     // Greetings
-    'hi': 'Hello! ?? Welcome to Scholar! I\'m here to help you learn and find information. What would you like to know today?',
-    'hello': 'Hi there! ?? Great to see you! I\'m Scholar, your educational assistant. Feel free to ask me anything or search for information!',
-    'hey': 'Hey! ?? How can I help you today? I can search Wikipedia for information, answer questions, or help you learn about any topic!',
-    'hi there': 'Hello! ?? I\'m Scholar, ready to assist you with your learning journey. What topic interests you today?',
-    'hello there': 'Hi! ?? Welcome! I\'m here to help you explore knowledge. Just type your question or topic!',
-    'good morning': 'Good morning! ?? Hope you\'re having a great day! What would you like to learn about today?',
-    'good afternoon': 'Good afternoon! ??? Ready to dive into some knowledge? What\'s on your mind?',
-    'good evening': 'Good evening! ?? Perfect time to learn something new. What can I help you with?',
-    'good night': 'Good night! ?? If you have any last questions before you rest, I\'m here to help!',
+    'hi': 'Hello! 👋 Welcome to Scholar! I\'m here to help you learn and find information. What would you like to know today?',
+    'hello': 'Hi there! 🤗 Great to see you! I\'m Scholar, your educational assistant. Feel free to ask me anything or search for information!',
+    'hey': 'Hey! 😊 How can I help you today? I can search Wikipedia for information, answer questions, or help you learn about any topic!',
+    'hi there': 'Hello! 🤖 I\'m Scholar, ready to assist you with your learning journey. What topic interests you today?',
+    'hello there': 'Hi! 😄 Welcome! I\'m here to help you explore knowledge. Just type your question or topic!',
+    'good morning': 'Good morning! ☀️ Hope you\'re having a great day! What would you like to learn about today?',
+    'good afternoon': 'Good afternoon! 🌤️ Ready to dive into some knowledge? What\'s on your mind?',
+    'good evening': 'Good evening! 🌆 Perfect time to learn something new. What can I help you with?',
+    'good night': 'Good night! 🌙 If you have any last questions before you rest, I\'m here to help!',
     
     // Common questions
-    'how are you': 'I\'m doing great, thanks for asking! ?? I\'m always ready to help you learn. What would you like to explore?',
-    'what are you': 'I\'m Scholar, an educational AI assistant! ?? I can search Wikipedia, answer questions, and help you learn about any topic. Try asking me about science, history, or anything you\'re curious about!',
-    'who are you': 'I\'m Scholar, your educational AI assistant! ?? I\'m designed to help you find information, learn new things, and answer your questions. I use Wikipedia as my main knowledge source!',
-    'what can you do': 'I can help you in many ways! ??\n\n� Search Wikipedia for detailed information\n� Answer questions on various topics\n� Provide comprehensive explanations (use DeepThink mode!)\n� Help with quick facts (use Easy mode)\n� Calculate math problems (use /calc)\n� Show current time and date\n\nJust type your question or use /help for more commands!',
-    'help': 'Here is how I can help you! ?? Search Modes: Flash Scholar Easy for quick answers, Flash Scholar DeepThink for detailed articles. Commands: /help, /calc, /time, /date. Just type any question!',
+    'how are you': 'I\'m doing great, thanks for asking! 😊 I\'m always ready to help you learn. What would you like to explore?',
+    'what are you': 'I\'m Scholar, an educational AI assistant! 📚 I can search Wikipedia, answer questions, and help you learn about any topic. Try asking me about science, history, or anything you\'re curious about!',
+    'who are you': 'I\'m Scholar, your educational AI assistant! 🤖 I\'m designed to help you find information, learn new things, and answer your questions. I use Wikipedia as my main knowledge source!',
+    'what can you do': 'I can help you in many ways! 🎯\n\n� Search Wikipedia for detailed information\n� Answer questions on various topics\n� Provide comprehensive explanations (use DeepThink mode!)\n� Help with quick facts (use Easy mode)\n� Calculate math problems (use /calc)\n� Show current time and date\n\nJust type your question or use /help for more commands!',
+    'help': 'Here is how I can help you! 📖 Search Modes: Flash Scholar Easy for quick answers, Flash Scholar DeepThink for detailed articles. Commands: /help, /calc, /time, /date. Just type any question!',
     
     // Farewells
-    'bye': 'Goodbye! ?? Thanks for using Scholar. Come back anytime you want to learn something new!',
-    'goodbye': 'Goodbye! ?? It was great helping you. See you next time!',
-    'see you': 'See you later! ?? Happy learning!',
-    'thanks': 'You\'re welcome! ?? I\'m always here to help. Feel free to ask if you need anything else!',
-    'thank you': 'You\'re very welcome! ?? It\'s my pleasure to help you learn. Don\'t hesitate to ask more questions!',
-    'thank you so much': 'Aw, you\'re so welcome! ?? I\'m glad I could help. Keep exploring and learning!',
+    'bye': 'Goodbye! 👋 Thanks for using Scholar. Come back anytime you want to learn something new!',
+    'goodbye': 'Goodbye! 😊 It was great helping you. See you next time!',
+    'see you': 'See you later! 📚 Happy learning!',
+    'thanks': 'You\'re welcome! 😄 I\'m always here to help. Feel free to ask if you need anything else!',
+    'thank you': 'You\'re very welcome! 😊 It\'s my pleasure to help you learn. Don\'t hesitate to ask more questions!',
+    'thank you so much': 'Aw, you\'re so welcome! 🥰 I\'m glad I could help. Keep exploring and learning!',
     
     // Fun responses
-    'what is your name': 'My name is Scholar! ?? I\'m your educational AI assistant, here to help you learn and discover new things!',
-    'how old are you': 'I\'m an AI, so I don\'t have an age in the traditional sense! ?? But I\'m always up-to-date with the latest information!',
-    'are you real': 'I\'m as real as the code that runs me! ?? I\'m an AI assistant designed to help you learn and find information!',
-    'what is ai': 'AI stands for Artificial Intelligence! ?? It\'s the simulation of human intelligence by machines. I\'m an example of AI - I can understand your questions and help you find answers. Want me to search for more detailed information about AI?',
+    'what is your name': 'My name is Scholar! 📚 I\'m your educational AI assistant, here to help you learn and discover new things!',
+    'how old are you': 'I\'m an AI, so I don\'t have an age in the traditional sense! 😄 But I\'m always up-to-date with the latest information!',
+    'are you real': 'I\'m as real as the code that runs me! 🤖 I\'m an AI assistant designed to help you learn and find information!',
+    'what is ai': 'AI stands for Artificial Intelligence! 🧠 It\'s the simulation of human intelligence by machines. I\'m an example of AI - I can understand your questions and help you find answers. Want me to search for more detailed information about AI?',
     
     // Creator and origin questions
-    'who made you': 'I was made by Saad Khan! ????? He\'s a talented developer who created me to help people learn and find information easily!',
-    'who created you': 'I was created by Saad Khan! ?? He built me with passion for education and technology to make learning accessible for everyone!',
-    'who built you': 'Saad Khan built me! ?? He\'s an amazing developer who designed me to be your educational companion!',
-    'who is your creator': 'My creator is Saad Khan! ?? He envisioned an AI assistant that could help students and curious minds learn efficiently!',
-    'who is your developer': 'My developer is Saad Khan! ????? He coded me with care and attention to make your learning experience smooth and enjoyable!',
-    'who owns you': 'I was developed by Saad Khan! ?? He created me to be a helpful educational tool for everyone!',
-    'who designed you': 'I was designed by Saad Khan! ?? He put thought into every feature to make me both useful and user-friendly!',
-    'who programmed you': 'Saad Khan programmed me! ?? He\'s a skilled developer who brought me to life to assist with learning!',
-    'when were you made': 'I was created in 2026! ?? Saad Khan developed me to be a modern educational assistant for today\'s learners!',
-    'where were you made': 'I was made by Saad Khan! ?? He created me to help people around the world access information easily!',
-    'tell me about your creator': 'My creator is Saad Khan! ????? He\'s a passionate developer who believes in the power of education and technology. He built me to make learning fun and accessible!',
-    'who is saad khan': 'Saad Khan is my creator! ?? He\'s a talented developer who built me to help you learn and discover information. He\'s passionate about education and technology!',
+    'who made you': 'I was made by Saad Khan! 👨‍💻 He\'s a talented developer who created me to help people learn and find information easily!',
+    'who created you': 'I was created by Saad Khan! 👨‍💻 He built me with passion for education and technology to make learning accessible for everyone!',
+    'who built you': 'Saad Khan built me! 👨‍💻 He\'s an amazing developer who designed me to be your educational companion!',
+    'who is your creator': 'My creator is Saad Khan! 👨‍💻 He envisioned an AI assistant that could help students and curious minds learn efficiently!',
+    'who is your developer': 'My developer is Saad Khan! 👨‍💻 He coded me with care and attention to make your learning experience smooth and enjoyable!',
+    'who owns you': 'I was developed by Saad Khan! 👨‍💻 He created me to be a helpful educational tool for everyone!',
+    'who designed you': 'I was designed by Saad Khan! 👨‍💻 He put thought into every feature to make me both useful and user-friendly!',
+    'who programmed you': 'Saad Khan programmed me! 👨‍💻 He\'s a skilled developer who brought me to life to assist with learning!',
+    'when were you made': 'I was created in 2026! 🚀 Saad Khan developed me to be a modern educational assistant for today\'s learners!',
+    'where were you made': 'I was made by Saad Khan! 🌍 He created me to help people around the world access information easily!',
+    'tell me about your creator': 'My creator is Saad Khan! 👨‍💻 He\'s a passionate developer who believes in the power of education and technology. He built me to make learning fun and accessible!',
+    'who is saad khan': 'Saad Khan is my creator! 👨‍💻 He\'s a talented developer who built me to help you learn and discover information. He\'s passionate about education and technology!',
   };
 
   // Check for exact matches first
@@ -6166,14 +6202,14 @@ function addMessage(type, content, sources, modelUsed, elapsed, isQR) {
 
   let sourcesHtml = '';
   if (sources && sources.length > 0) {
-    sourcesHtml = `<div class="sources"><div class="sources-title">Sources</div>${sources.map(s => `<a class="source-link" onclick="loadInBrowser('${s.url}')" target="_blank">${s.title}</a>`).join('')}</div>`;
+    sourcesHtml = `<div class="msg-sources"><div class="msg-sources-title">Sources</div>${sources.map(s => `<a class="msg-source-link" onclick="loadInBrowser('${s.url}')" target="_blank">${s.title}</a>`).join('')}</div>`;
   }
 
   let actionsHtml = '';
   if (type === 'ai') {
     actionsHtml = `<div class="message-actions">
-      <button class="msg-action-btn" onclick="regenerateResponse(this)">?? Regenerate</button>
-      <button class="msg-action-btn" onclick="copyMsg(this)">?? Copy</button>
+      <button class="msg-action-btn" onclick="regenerateResponse(this)">🔄 Regenerate</button>
+      <button class="msg-action-btn" onclick="copyMsg(this)">📋 Copy</button>
       <button class="tts-btn" onclick="speakMessage(this)">?? Read</button>
     </div>`;
   }
@@ -6181,7 +6217,7 @@ function addMessage(type, content, sources, modelUsed, elapsed, isQR) {
   let bubbleContent = '';
   if (isQR && content.includes('__QR_CODE__')) {
     const qrText = content.match(/__QR_CODE__(.+?)__QR_END__/)[1];
-    bubbleContent = `<div class="qr-container" id="qr-${msgId}"></div><div class="qr-label">?? QR Code for: ${escapeHtml(qrText)}</div>`;
+    bubbleContent = `<div class="qr-container" id="qr-${msgId}"></div><div class="qr-label">🔗 QR Code for: ${escapeHtml(qrText)}</div>`;
   } else {
     bubbleContent = type === 'ai' ? renderMarkdown(content) : escapeHtml(content);
   }
@@ -6189,16 +6225,16 @@ function addMessage(type, content, sources, modelUsed, elapsed, isQR) {
   msgDiv.innerHTML = type === 'user'
     ? `<div class="msg-row msg-row-user">
         <div class="msg-col msg-col-user">
+          <div class="msg-label msg-label-user">You</div>
           <div class="msg-bubble msg-bubble-user">${bubbleContent}</div>
         </div>
       </div>`
     : `<div class="msg-row msg-row-ai">
         <div class="msg-col msg-col-ai">
-          <div class="msg-bubble msg-bubble-ai">
-            ${bubbleContent}
-            ${sourcesHtml}
-            ${actionsHtml}
-          </div>
+          <div class="msg-label msg-label-ai">Scholar</div>
+          <div class="msg-bubble msg-bubble-ai">${bubbleContent}</div>
+          ${sourcesHtml}
+          ${actionsHtml}
         </div>
       </div>`;
   container.appendChild(msgDiv);
@@ -6249,7 +6285,7 @@ function copyMsg(btn) {
   const text = bubble.innerText.replace('Sources', '').trim();
   navigator.clipboard.writeText(text);
   btn.textContent = '? Copied';
-  setTimeout(() => btn.textContent = '?? Copy', 1500);
+  setTimeout(() => btn.textContent = '📋 Copy', 1500);
 }
 
 // ===== MARKDOWN RENDERING WITH CODE HIGHLIGHTING =====
@@ -6305,7 +6341,7 @@ function createNewConversation() {
     userProfile.chatsCount = (userProfile.chatsCount || 0) + 1;
     updateProfileDisplay();
     incrementUserStat('chatsCount', 1).catch(function(err) {
-      console.warn('?? chatsCount not saved:', err?.message);
+      console.error('⚠️ chatsCount not saved:', err?.message);
     });
   }
 }
@@ -6317,7 +6353,7 @@ function switchConversation(id) {
   const container = document.getElementById('chatMessages');
   container.innerHTML = '';
   if (conv.messages.length === 0) {
-    container.innerHTML = `<div class="welcome-msg"><h2>?? Wikipedia Search</h2><p>Search for any topic</p></div>`;
+    container.innerHTML = `<div class="welcome-msg"><h2>🔍 Wikipedia Search</h2><p>Search for any topic</p></div>`;
   } else {
     conv.messages.forEach(msg => {
       if (msg.role === 'user') addMessage('user', msg.content);
@@ -6341,10 +6377,10 @@ function switchModel(mode) {
   const badge = document.getElementById('modelBadge');
   const modelNames = {
     'easy': 'Flash Scholar Easy Active ?',
-    'deepthink': 'Flash Scholar DeepThink Active ??'
+    'deepthink': 'Flash Scholar DeepThink Active 🎓'
   };
   if (badge) badge.textContent = modelNames[mode] || 'Flash Scholar Easy Active ?';
-  const msg = mode === 'deepthink' ? 'Switched to Deep Study Mode ??' : 'Switched to Quick Learn Mode ?';
+  const msg = mode === 'deepthink' ? 'Switched to Deep Study Mode 🎓' : 'Switched to Quick Learn Mode ⚡';
   showToast(msg);
 }
 
@@ -6416,7 +6452,7 @@ function toggleShortcuts() {
 
 const shortcutsHtml = `
 <div class="shortcuts-help" id="shortcutsHelp">
-  <h4>?? Keyboard Shortcuts</h4>
+  <h4>⌨️ Keyboard Shortcuts</h4>
   <div class="shortcut-item"><span>Enter</span> <span class="shortcut-key">Search</span></div>
   <div class="shortcut-item"><span>Ctrl + K</span> <span class="shortcut-key">Clear</span></div>
   <div class="shortcut-item"><span>Ctrl + E</span> <span class="shortcut-key">Export</span></div>
@@ -6435,7 +6471,7 @@ function clearChat() {
     const conv = conversations.find(c => c.id === currentConversationId);
     conv.messages = [];
     const container = document.getElementById('chatMessages');
-    container.innerHTML = `<div class="welcome-msg"><h2>?? Wikipedia Search</h2><p>Instantly search Wikipedia for information</p></div>`;
+    container.innerHTML = `<div class="welcome-msg"><h2>🔍 Wikipedia Search</h2><p>Instantly search Wikipedia for information</p></div>`;
   }
 }
 
@@ -6473,7 +6509,7 @@ function toggleBrowser() { browserVisible = !browserVisible; document.getElement
 // ===== TEXT-TO-SPEECH =====
 function speakMessage(btn) {
   if (!('speechSynthesis' in window)) { btn.textContent = 'Not supported'; return; }
-  if (speechSynthesis.speaking) { speechSynthesis.cancel(); btn.classList.remove('speaking'); btn.textContent = '?? Read'; return; }
+  if (speechSynthesis.speaking) { speechSynthesis.cancel(); btn.classList.remove('speaking'); btn.textContent = '🔊 Read'; return; }
   const row = btn.closest('.msg-row') || btn.closest('.message');
   const bubble = row ? row.querySelector('.msg-bubble') : null;
   if (!bubble) return;
@@ -6481,8 +6517,8 @@ function speakMessage(btn) {
   const utterance = new SpeechSynthesisUtterance(text.substring(0, 500));
   utterance.rate = 1; utterance.pitch = 1;
   utterance.onstart = () => { btn.classList.add('speaking'); btn.textContent = '? Stop'; };
-  utterance.onend = () => { btn.classList.remove('speaking'); btn.textContent = '?? Read'; };
-  utterance.onerror = () => { btn.classList.remove('speaking'); btn.textContent = '?? Read'; };
+  utterance.onend = () => { btn.classList.remove('speaking'); btn.textContent = '🔊 Read'; };
+  utterance.onerror = () => { btn.classList.remove('speaking'); btn.textContent = '🔊 Read'; };
   speechSynthesis.speak(utterance);
 }
 
@@ -6497,7 +6533,7 @@ function selectModel(modelValue, btnElement) {
   allBtns.forEach(btn => btn.classList.remove('active'));
   btnElement.classList.add('active');
   
-  console.log('? Model changed to:', modelValue);
+  console.log('✅ Model changed to:', modelValue);
 }
 
 // ===== VOICE INPUT =====
@@ -6506,10 +6542,10 @@ let recognition = null;
 function toggleVoiceInput() {
   const btn = document.getElementById('voiceBtn');
   if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-    btn.textContent = '??'; btn.title = 'Voice not supported'; return;
+    btn.textContent = '🎤'; btn.title = 'Voice not supported'; return;
   }
   if (isRecording) {
-    recognition.stop(); isRecording = false; btn.classList.remove('recording'); btn.textContent = '??'; return;
+    recognition.stop(); isRecording = false; btn.classList.remove('recording'); btn.textContent = '🎤'; return;
   }
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   recognition = new SR();
@@ -6519,8 +6555,8 @@ function toggleVoiceInput() {
     const text = e.results[0][0].transcript;
     document.getElementById('chatInput').value = text;
   };
-  recognition.onend = () => { isRecording = false; btn.classList.remove('recording'); btn.textContent = '??'; };
-  recognition.onerror = () => { isRecording = false; btn.classList.remove('recording'); btn.textContent = '??'; };
+  recognition.onend = () => { isRecording = false; btn.classList.remove('recording'); btn.textContent = '🎤'; };
+  recognition.onerror = () => { isRecording = false; btn.classList.remove('recording'); btn.textContent = '🎤'; };
   recognition.start();
 }
 
@@ -6562,13 +6598,16 @@ function detectIntent(text) {
   if (mode === 'wiki') return { type: 'wiki', query: text };
   // Smart detection
   if (/^[\d\s+\-*/().%^]+$/.test(t) && /[\d+\-*/]/.test(t)) return { type: 'calc', query: text };
-  if (/^(what is|calculate|compute|solve|math)\s/i.test(t)) return { type: 'calc', query: t.replace(/^(what is|calculate|compute|solve|math)\s/i, '') };
+  if (/^(calculate|compute|solve|math)\s/i.test(t)) return { type: 'calc', query: t.replace(/^(calculate|compute|solve|math)\s/i, '') };
+  if (/^what is\s/i.test(t)) { const q = t.replace(/^what is\s/i, '').replace(/[?]+$/, ''); if (/^[\d\s+\-*/().%^]+$/.test(q) && /[\d]/.test(q)) return { type: 'calc', query: q }; }
   if (/^(weather|temperature|forecast|rain|sunny)\s*(in|at|for)?\s*/i.test(t)) return { type: 'weather', query: t.replace(/^(weather|temperature|forecast|rain|sunny)\s*(in|at|for)?\s*/i, '') };
-  if (/^(define|meaning of|what does|definition of|synonym)\s/i.test(t)) return { type: 'define', query: t.replace(/^(define|meaning of|what does|definition of|synonym)\s/i, '') };
+  if (/^(define|meaning of|definition of|synonym)\s/i.test(t)) return { type: 'define', query: t.replace(/^(define|meaning of|definition of|synonym)\s/i, '') };
+  if (/^what does\s/i.test(t)) { const q = t.replace(/^what does\s/i, '').replace(/\s*mean\s*\?*$/i, '').replace(/[?]+$/, ''); if (/^\w+$/.test(q)) return { type: 'define', query: q }; }
   if (/^(flip a coin|coin flip|heads or tails|toss)/i.test(t)) return { type: 'coin', query: '' };
   if (/^(roll a die|roll dice|dice roll|roll d)/i.test(t)) return { type: 'dice', query: '' };
   if (/^(tell me a joke|joke|funny|make me laugh)/i.test(t)) return { type: 'joke', query: '' };
-  if (/^(what time|current time|what date|what day)/i.test(t)) return { type: 'time', query: '' };
+  if (/^(what time is it|what time is it now|current time)/i.test(t)) return { type: 'time', query: '' };
+  if (/^(what date is it|what date is today|current date|what day is it)/i.test(t)) return { type: 'time', query: '' };
   if (/^(generate password|random password|create password|new password)/i.test(t)) return { type: 'password', query: '12' };
   if (/^(random fact|fun fact|trivia|did you know)/i.test(t)) return { type: 'fact', query: '' };
   return { type: 'wiki', query: text };
@@ -6587,17 +6626,17 @@ function handleCalc(query) {
     const rounded = Number.isInteger(result) ? result : parseFloat(result.toFixed(8));
     return {
       success: true,
-      text: `# ?? Calculator\n\n<div class="result-card"><h3>Expression</h3><div class="detail">${escapeHtml(query)}</div><h3>Result</h3><div class="value">${rounded}</div></div>\n\n*Calculated instantly*`,
-      model: 'Flash Scholar ??'
+      text: `# 🧮 Calculator\n\n<div class="result-card"><h3>Expression</h3><div class="detail">${escapeHtml(query)}</div><h3>Result</h3><div class="value">${rounded}</div></div>\n\n*Calculated instantly*`,
+      model: 'Flash Scholar 🤖'
     };
   } catch (e) {
-    return { success: true, text: `# ?? Calculator Error\n\nCould not calculate: **${escapeHtml(query)}**\n\nMake sure to use valid math syntax:\n- Numbers: 5, 3.14\n- Operators: + - * / ^ %\n- Parentheses: ( )\n\nExample: /calc (25 * 4) + 10`, model: 'Flash Scholar ??' };
+    return { success: true, text: `# ❌ Calculator Error\n\nCould not calculate: **${escapeHtml(query)}**\n\nMake sure to use valid math syntax:\n- Numbers: 5, 3.14\n- Operators: + - * / ^ %\n- Parentheses: ( )\n\nExample: /calc (25 * 4) + 10`, model: 'Flash Scholar 🤖' };
   }
 }
 
 // Weather
 async function handleWeather(query) {
-  if (!query.trim()) return { success: true, text: '# ??? Weather\n\nPlease specify a city. Example: /weather London', model: 'Flash Scholar ???' };
+  if (!query.trim()) return { success: true, text: '# 🌤️ Weather\n\nPlease specify a city. Example: /weather London', model: 'Flash Scholar 🤖' };
   try {
     const resp = await fetch(`https://wttr.in/${encodeURIComponent(query)}?format=j1`, { signal: AbortSignal.timeout(10000) });
     if (!resp.ok) throw new Error('Weather API failed');
@@ -6618,23 +6657,23 @@ async function handleWeather(query) {
     const uv = cur.uvIndex;
     return {
       success: true,
-      text: `# ??? Weather: ${city}, ${country}\n\n**${desc}**\n\n<div class="weather-grid"><div class="weather-item"><div class="wlabel">Temperature</div><div class="wval">${tempC}�C</div></div><div class="weather-item"><div class="wlabel">Feels Like</div><div class="wval">${feelsC}�C</div></div><div class="weather-item"><div class="wlabel">Humidity</div><div class="wval">${humidity}%</div></div><div class="weather-item"><div class="wlabel">Wind</div><div class="wval">${wind} km/h</div></div><div class="weather-item"><div class="wlabel">Visibility</div><div class="wval">${vis} km</div></div><div class="weather-item"><div class="wlabel">UV Index</div><div class="wval">${uv}</div></div></div>\n\n**Fahrenheit:** ${tempF}�F (feels like ${feelsF}�F) | **Pressure:** ${pressure} hPa`,
-      model: 'Flash Scholar ???'
+      text: `# 🌤️ Weather: ${city}, ${country}\n\n**${desc}**\n\n<div class="weather-grid"><div class="weather-item"><div class="wlabel">Temperature</div><div class="wval">${tempC}�C</div></div><div class="weather-item"><div class="wlabel">Feels Like</div><div class="wval">${feelsC}�C</div></div><div class="weather-item"><div class="wlabel">Humidity</div><div class="wval">${humidity}%</div></div><div class="weather-item"><div class="wlabel">Wind</div><div class="wval">${wind} km/h</div></div><div class="weather-item"><div class="wlabel">Visibility</div><div class="wval">${vis} km</div></div><div class="weather-item"><div class="wlabel">UV Index</div><div class="wval">${uv}</div></div></div>\n\n**Fahrenheit:** ${tempF}�F (feels like ${feelsF}�F) | **Pressure:** ${pressure} hPa`,
+      model: 'Flash Scholar 🤖'
     };
   } catch (e) {
-    return { success: true, text: `# ??? Weather\n\nCould not fetch weather for **${escapeHtml(query)}**.\n\nMake sure the city name is correct. Example: /weather London`, model: 'Flash Scholar ???' };
+    return { success: true, text: `# 🌤️ Weather\n\nCould not fetch weather for **${escapeHtml(query)}**.\n\nMake sure the city name is correct. Example: /weather London`, model: 'Flash Scholar 🤖' };
   }
 }
 
 // Dictionary
 async function handleDefine(query) {
-  if (!query.trim()) return { success: true, text: '# ?? Dictionary\n\nPlease specify a word. Example: /define serendipity', model: 'Flash Scholar ??' };
+  if (!query.trim()) return { success: true, text: '# 📖 Dictionary\n\nPlease specify a word. Example: /define serendipity', model: 'Flash Scholar 🤖' };
   try {
     const resp = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(query)}`, { signal: AbortSignal.timeout(8000) });
     if (!resp.ok) throw new Error('Word not found');
     const data = await resp.json();
     const word = data[0];
-    let content = `# ?? ${word.word}\n`;
+    let content = `# 📄 ${word.word}\n`;
     if (word.phonetic) content += `\n<div class="dict-phonetic">${word.phonetic}</div>\n`;
     word.meanings.slice(0, 3).forEach(meaning => {
       content += `\n<div class="dict-pos">${meaning.partOfSpeech}</div>\n`;
@@ -6644,9 +6683,9 @@ async function handleDefine(query) {
       });
     });
     if (word.sourceUrls?.[0]) content += `\n**Source:** [${word.word}](${word.sourceUrls[0]})\n`;
-    return { success: true, text: content, model: 'Flash Scholar ??' };
+    return { success: true, text: content, model: 'Flash Scholar 🤖' };
   } catch (e) {
-    return { success: true, text: `# ?? Dictionary\n\nNo definition found for **"${escapeHtml(query)}"**.\n\nCheck the spelling or try a different word.`, model: 'Flash Scholar ??' };
+    return { success: true, text: `# 📖 Dictionary\n\nNo definition found for **"${escapeHtml(query)}"**.\n\nCheck the spelling or try a different word.`, model: 'Flash Scholar 🤖' };
   }
 }
 
@@ -6670,13 +6709,13 @@ function handleJoke() {
     "Why did the keyboard go to therapy? Because it couldn't keep its shift together.",
   ];
   const joke = jokes[Math.floor(Math.random() * jokes.length)];
-  return { success: true, text: `# ?? Random Joke\n\n${joke}`, model: 'Flash Scholar ??' };
+  return { success: true, text: `# 😄 Random Joke\n\n${joke}`, model: 'Flash Scholar 🤖' };
 }
 
 // Coin Flip
 function handleCoin() {
-  const result = Math.random() < 0.5 ? 'Heads ??' : 'Tails ??';
-  return { success: true, text: `# ?? Coin Flip\n\n<div class="result-card"><div class="value" style="text-align:center;font-size:36px">${result}</div></div>\n\n*Flipped instantly*`, model: 'Flash Scholar ??' };
+  const result = Math.random() < 0.5 ? 'Heads 🪙' : 'Tails 🪙';
+  return { success: true, text: `# 🪙 Coin Flip\n\n<div class="result-card"><div class="value" style="text-align:center;font-size:36px">${result}</div></div>\n\n*Flipped instantly*`, model: 'Flash Scholar 🤖' };
 }
 
 // Dice Roll
@@ -6685,7 +6724,7 @@ function handleDice(query) {
   const match = query.match(/d(\d+)/i);
   if (match) sides = parseInt(match[1]) || 6;
   const result = Math.floor(Math.random() * sides) + 1;
-  return { success: true, text: `# ?? Dice Roll (d${sides})\n\n<div class="result-card"><div class="value" style="text-align:center;font-size:36px">${result}</div></div>\n\n*Rolled a d${sides}*`, model: 'Flash Scholar ??' };
+  return { success: true, text: `# 🎲 Dice Roll (d${sides})\n\n<div class="result-card"><div class="value" style="text-align:center;font-size:36px">${result}</div></div>\n\n*Rolled a d${sides}*`, model: 'Flash Scholar 🤖' };
 }
 
 // Password Generator
@@ -6696,8 +6735,8 @@ function handlePassword(length) {
   const array = new Uint32Array(len);
   crypto.getRandomValues(array);
   for (let i = 0; i < len; i++) password += chars[array[i] % chars.length];
-  const strength = len >= 16 ? '?? Strong' : len >= 10 ? '?? Medium' : '?? Weak';
-  return { success: true, text: `# ?? Generated Password\n\n<div class="password-display">${password}</div>\n\n**Length:** ${len} characters | **Strength:** ${strength}\n\n*Click ?? Copy on this message to copy the password*`, model: 'Flash Scholar ??' };
+  const strength = len >= 16 ? '🟢 Strong' : len >= 10 ? '🟡 Medium' : '🔴 Weak';
+  return { success: true, text: `# 🔑 Generated Password\n\n<div class="password-display">${password}</div>\n\n**Length:** ${len} characters | **Strength:** ${strength}\n\n*Click 📋 Copy on this message to copy the password*`, model: 'Flash Scholar 🤖' };
 }
 
 // Time & Date
@@ -6710,8 +6749,8 @@ function handleTime() {
   const dayOfYear = Math.ceil((now - new Date(now.getFullYear(), 0, 1)) / 86400000);
   return {
     success: true,
-    text: `# ?? Current Date & Time\n\n<div class="result-card"><div class="value" style="text-align:center">${time}</div><div class="detail" style=\"text-align:center\">${date}</div></div>\n\n**Timezone:** ${tz} | **Week:** ${weekNum} | **Day of Year:** ${dayOfYear}`,
-    model: 'Flash Scholar ??'
+    text: `# 🕐 Current Date & Time\n\n<div class="result-card"><div class="value" style="text-align:center">${time}</div><div class="detail" style=\"text-align:center\">${date}</div></div>\n\n**Timezone:** ${tz} | **Week:** ${weekNum} | **Day of Year:** ${dayOfYear}`,
+    model: 'Flash Scholar 🤖'
   };
 }
 
@@ -6721,7 +6760,7 @@ async function handleFact() {
     const resp = await fetch('https://uselessfacts.jsph.pl/api/v2/facts/random?language=en', { signal: AbortSignal.timeout(5000) });
     if (resp.ok) {
       const data = await resp.json();
-      return { success: true, text: `# ?? Random Fact\n\n${data.text}`, model: 'Flash Scholar ??' };
+      return { success: true, text: `# 🤔 Random Fact\n\n${data.text}`, model: 'Flash Scholar 🤖' };
     }
   } catch (e) {}
   // Fallback facts
@@ -6735,14 +6774,14 @@ async function handleFact() {
     "A jiffy is an actual unit of time: 1/100th of a second.",
     "There are more possible iterations of a game of chess than there are atoms in the observable universe.",
   ];
-  return { success: true, text: `# ?? Random Fact\n\n${facts[Math.floor(Math.random() * facts.length)]}`, model: 'Flash Scholar ??' };
+  return { success: true, text: `# 🤔 Random Fact\n\n${facts[Math.floor(Math.random() * facts.length)]}`, model: 'Flash Scholar 🤖' };
 }
 
 // Help
 function handleHelp() {
   return {
     success: true,
-    text: `# ? NexusAI Enhanced Commands & Features\n\n## ?? Slash Commands\n- **/calc** <expression> � Calculate math (e.g. /calc 25 * 4 + 10)\n- **/weather** <city> � Get current weather (e.g. /weather Tokyo)\n- **/define** <word> � Look up dictionary definition (e.g. /define serendipity)\n- **/wiki** <topic> � Search Wikipedia (e.g. /wiki black holes)\n- **/translate** <text> to <lang> � Translate text (e.g. /translate hello to Spanish)\n- **/convert** <amount> <unit> to <unit> � Convert units (e.g. /convert 10 km to miles)\n- **/encode** <text> � Base64 encode/decode (e.g. /encode Hello World)\n- **/qr** <text> � Generate QR code (e.g. /qr https://github.com)\n- **/time** � Show current date & time\n- **/joke** � Get a random joke\n- **/fact** � Get a random fun fact\n- **/coin** � Flip a coin\n- **/dice** or **/roll** d<N> � Roll dice (e.g. /roll d20)\n- **/password** <length> � Generate secure password (e.g. /password 16)\n\n## ?? Smart Detection\nJust type naturally and NexusAI will detect your intent:\n- "what is 5 * 3" ? Calculator\n- "weather in Paris" ? Weather\n- "define happiness" ? Dictionary\n- "flip a coin" ? Coin flip\n- "tell me a joke" ? Jokes\n- "what time is it" ? Date/Time\n\n## ?? Voice Input\nClick the microphone button to speak your query.\n\n## ?? Text-to-Speech\nClick "Read" on any AI response to hear it spoken aloud.`,
+    text: `# 🤖 NexusAI Enhanced Commands & Features\n\n## ⌨️ Slash Commands\n- **/calc** <expression> � Calculate math (e.g. /calc 25 * 4 + 10)\n- **/weather** <city> � Get current weather (e.g. /weather Tokyo)\n- **/define** <word> � Look up dictionary definition (e.g. /define serendipity)\n- **/wiki** <topic> � Search Wikipedia (e.g. /wiki black holes)\n- **/translate** <text> to <lang> � Translate text (e.g. /translate hello to Spanish)\n- **/convert** <amount> <unit> to <unit> � Convert units (e.g. /convert 10 km to miles)\n- **/encode** <text> � Base64 encode/decode (e.g. /encode Hello World)\n- **/qr** <text> � Generate QR code (e.g. /qr https://github.com)\n- **/time** � Show current date & time\n- **/joke** � Get a random joke\n- **/fact** � Get a random fun fact\n- **/coin** � Flip a coin\n- **/dice** or **/roll** d<N> � Roll dice (e.g. /roll d20)\n- **/password** <length> � Generate secure password (e.g. /password 16)\n\n## 🧠 Smart Detection\nJust type naturally and NexusAI will detect your intent:\n- "what is 5 * 3" ? Calculator\n- "weather in Paris" ? Weather\n- "define happiness" ? Dictionary\n- "flip a coin" ? Coin flip\n- "tell me a joke" ? Jokes\n- "what time is it" ? Date/Time\n\n## 🎤 Voice Input\nClick the microphone button to speak your query.\n\n## 🔊 Text-to-Speech\nClick "Read" on any AI response to hear it spoken aloud.`,
     model: 'Flash Scholar ?'
   };
 }
@@ -6755,23 +6794,23 @@ function handleTranslate(query) {
     german: { hello: 'hallo', goodbye: 'auf wiedersehen', thank: 'danke', please: 'bitte' },
     italian: { hello: 'ciao', goodbye: 'arrivederci', thank: 'grazie', please: 'per favore' },
     portuguese: { hello: 'ol�', goodbye: 'adeus', thank: 'obrigado', please: 'por favor' },
-    japanese: { hello: '?????', goodbye: '?????', thank: '?????', please: '??????' }
+    japanese: { hello: 'こんにちは', goodbye: 'さようなら', thank: 'ありがとう', please: 'お願いします' }
   };
   
   const match = query.match(/^(.+?)\s+to\s+(\w+)$/i);
-  if (!match) return { success: true, text: '# ?? Translator\n\nUsage: /translate "hello" to spanish\n\nSupported languages: Spanish, French, German, Italian, Portuguese, Japanese', model: 'Flash Scholar ??' };
+  if (!match) return { success: true, text: '# 🌐 Translator\n\nUsage: /translate "hello" to spanish\n\nSupported languages: Spanish, French, German, Italian, Portuguese, Japanese', model: 'Flash Scholar 🤖' };
   
   const text = match[1].toLowerCase();
   const lang = match[2].toLowerCase();
   const translations = languages[lang];
   
   if (!translations) {
-    return { success: true, text: `# ?? Translator\n\nLanguage "${lang}" not found. Supported: Spanish, French, German, Italian, Portuguese, Japanese`, model: 'Flash Scholar ??' };
+    return { success: true, text: `# 🌐 Translator\n\nLanguage "${lang}" not found. Supported: Spanish, French, German, Italian, Portuguese, Japanese`, model: 'Flash Scholar 🤖' };
   }
   
-  let result = `# ?? Translation\n\n<div class="translation-grid"><div class="translation-box"><div class="translation-label">Original</div><div class="translation-text">${escapeHtml(text)}</div></div><div class="translation-box"><div class="translation-label">${lang.toUpperCase()}</div><div class="translation-text">${escapeHtml(translations[text] || 'Translation not available for this word')}</div></div></div>`;
+  let result = `# 🌐 Translation\n\n<div class="translation-grid"><div class="translation-box"><div class="translation-label">Original</div><div class="translation-text">${escapeHtml(text)}</div></div><div class="translation-box"><div class="translation-label">${lang.toUpperCase()}</div><div class="translation-text">${escapeHtml(translations[text] || 'Translation not available for this word')}</div></div></div>`;
   
-  return { success: true, text: result, model: 'Flash Scholar ??' };
+  return { success: true, text: result, model: 'Flash Scholar 🤖' };
 }
 
 // Unit Converter
@@ -6791,7 +6830,7 @@ function handleConvert(query) {
   
   const match = query.match(/^([\d.]+)\s+(\w+)\s+to\s+(\w+)$/i);
   if (!match) {
-    return { success: true, text: '# ?? Unit Converter\n\nUsage: /convert 10 km to miles\n\nSupported: km?miles, kg?lbs, c?f, m?ft, l?gal', model: 'Converter ??' };
+    return { success: true, text: '# 📐 Unit Converter\n\nUsage: /convert 10 km to miles\n\nSupported: km?miles, kg?lbs, c?f, m?ft, l?gal', model: 'Converter 🤖' };
   }
   
   const value = parseFloat(match[1]);
@@ -6800,14 +6839,14 @@ function handleConvert(query) {
   const key = `${from} to ${to}`;
   
   if (!conversions[key]) {
-    return { success: true, text: `# ?? Converter\n\nConversion "${key}" not found`, model: 'Converter ??' };
+    return { success: true, text: `# ❌ Converter\n\nConversion "${key}" not found`, model: 'Converter 🤖' };
   }
   
   const result = conversions[key](value);
   return {
     success: true,
-    text: `# ?? Unit Conversion\n\n<div class="converter-grid"><div class="converter-input">${value} ${from}</div><div class="converter-arrow">?</div><div class="converter-output"><strong>${result} ${to}</strong></div></div>`,
-    model: 'Converter ??'
+    text: `# 📐 Unit Conversion\n\n<div class="converter-grid"><div class="converter-input">${value} ${from}</div><div class="converter-arrow">?</div><div class="converter-output"><strong>${result} ${to}</strong></div></div>`,
+    model: 'Converter 🤖'
   };
 }
 
@@ -6825,11 +6864,11 @@ function handleEncode(query) {
     
     return {
       success: true,
-      text: `# ?? Base64 Encoder/Decoder\n\n<div class="encoder-grid"><div class="encoder-box"><div class="encoder-label">Original</div><div class="encoder-text">${escapeHtml(decoded)}</div></div><div class="encoder-box"><div class="encoder-label">Base64</div><div class="encoder-text">${escapeHtml(encoded)}</div></div></div>`,
-      model: 'Encoder ??'
+      text: `# 🔐 Base64 Encoder/Decoder\n\n<div class="encoder-grid"><div class="encoder-box"><div class="encoder-label">Original</div><div class="encoder-text">${escapeHtml(decoded)}</div></div><div class="encoder-box"><div class="encoder-label">Base64</div><div class="encoder-text">${escapeHtml(encoded)}</div></div></div>`,
+      model: 'Encoder 🤖'
     };
   } catch (e) {
-    return { success: true, text: '# ?? Encoder\n\nError encoding/decoding text', model: 'Encoder ??' };
+    return { success: true, text: '# ❌ Encoder\n\nError encoding/decoding text', model: 'Encoder 🤖' };
   }
 }
 
@@ -6840,7 +6879,7 @@ function handleQR(query) {
   return {
     success: true,
     text: `__QR_CODE__${text}__QR_END__`,
-    model: 'QR Generator ??',
+    model: 'QR Generator 🤖',
     isQR: true,
     qrText: text
   };
@@ -6863,7 +6902,7 @@ function toggleSyntaxHighlight() { syntaxHighlightEnabled = !syntaxHighlightEnab
 function toggleKeyboardHelp() { keyboardHelpEnabled = !keyboardHelpEnabled; document.getElementById('keyboardToggle').classList.toggle('active', keyboardHelpEnabled); }
 
 function clearAllData() {
-  if (confirm('?? Are you sure you want to clear ALL data?\n\nThis will delete:\n- All conversations\n- All settings\n- All cached responses\n\nThis action cannot be undone!')) {
+  if (confirm('⚠️ Are you sure you want to clear ALL data?\n\nThis will delete:\n- All conversations\n- All settings\n- All cached responses\n\nThis action cannot be undone!')) {
     conversations = [];
     responseCache.clear();
     stats = { total: 0, responses: [], speedTimes: [] };
@@ -7020,7 +7059,7 @@ function createDocumentationModal() {
   modal.innerHTML = `
     <div class="doc-content">
       <div class="doc-header">
-        <h2>?? NexusAI Documentation</h2>
+        <h2>📖 NexusAI Documentation</h2>
         <button class="doc-close" onclick="closeDocumentation()">?</button>
       </div>
       <div class="doc-body">
@@ -7032,7 +7071,7 @@ function createDocumentationModal() {
         </div>
         
         <div class="doc-section active" id="quick-start">
-          <h3>?? Quick Start Guide</h3>
+          <h3>🚀 Quick Start Guide</h3>
           <p>Welcome to NexusAI Enhanced! Here's how to get started:</p>
           <h3>Basic Usage</h3>
           <p>1. Type your query or select a quick action button</p>
@@ -7052,7 +7091,7 @@ Generate QR code for my link</div>
         </div>
         
         <div class="doc-section" id="commands">
-          <h3>?? Available Commands</h3>
+          <h3>📋 Available Commands</h3>
           <table class="doc-table">
             <tr><th>Command</th><th>Usage</th><th>Example</th></tr>
             <tr><td>/calc</td><td>Math calculation</td><td>/calc 25 * 4</td></tr>
@@ -7073,31 +7112,31 @@ Generate QR code for my link</div>
         
         <div class="doc-section" id="features">
           <h3>? Key Features</h3>
-          <h3>?? Translation</h3>
+          <h3>🌐 Translation</h3>
           <p>Translate words between Spanish, French, German, Italian, Portuguese, and Japanese.</p>
-          <h3>?? Unit Converter</h3>
+          <h3>📐 Unit Converter</h3>
           <p>Convert between km?miles, kg?lbs, �C?�F, m?ft, l?gal</p>
-          <h3>?? Base64 Encoder</h3>
+          <h3>🔐 Base64 Encoder</h3>
           <p>Encode/decode text to and from Base64 format.</p>
-          <h3>?? QR Code Generator</h3>
+          <h3>📱 QR Code Generator</h3>
           <p>Generate scannable QR codes from text and URLs.</p>
-          <h3>?? Voice Input</h3>
+          <h3>🎤 Voice Input</h3>
           <p>Click the microphone button to speak your queries.</p>
-          <h3>?? Text-to-Speech</h3>
+          <h3>🔊 Text-to-Speech</h3>
           <p>Listen to responses by clicking the "Read" button.</p>
         </div>
         
         <div class="doc-section" id="tips">
-          <h3>?? Pro Tips</h3>
+          <h3>💡 Pro Tips</h3>
           <ul>
             <li><strong>Use Natural Language:</strong> You don't need slash commands for most queries</li>
             <li><strong>Keyboard Shortcut:</strong> Press Ctrl+K to clear chat, Ctrl+E to export</li>
-            <li><strong>Export Chats:</strong> Use the ?? Export button to save conversations as JSON</li>
-            <li><strong>Multiple Chats:</strong> Click the ?? sidebar button to switch between conversations</li>
+            <li><strong>Export Chats:</strong> Use the 📤 Export button to save conversations as JSON</li>
+            <li><strong>Multiple Chats:</strong> Click the 💬 sidebar button to switch between conversations</li>
             <li><strong>Dark Mode:</strong> Available in settings for eye comfort</li>
             <li><strong>Mobile Friendly:</strong> Optimized for phones and tablets</li>
             <li><strong>Quick Actions:</strong> Use buttons at the bottom for instant access</li>
-            <li><strong>Analytics:</strong> Track your usage with the ?? analytics button</li>
+            <li><strong>Analytics:</strong> Track your usage with the 📊 analytics button</li>
           </ul>
         </div>
       </div>
